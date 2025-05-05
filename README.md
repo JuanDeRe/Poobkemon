@@ -10,4 +10,9 @@ para correr el prgrama usamos el comando
 
 java -cp "bin;lib\*" src.presentation.PoobkemonGUI
 
+o desde el jar
+
+java -jar PoobkemonGUI.jar
+
+
 
