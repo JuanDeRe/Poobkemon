@@ -54,6 +54,7 @@ public class MoveAction implements Action {
 			this.pokemon.getMoves().get(this.move).execute(field,this.pokemon,target);
 			this.trainer.makeMove(this.pokemon, this.move);
 		}
+
 	}
 	/**
 	 * Obtiene el movimiento asociado a esta acción
