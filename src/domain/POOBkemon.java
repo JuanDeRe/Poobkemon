@@ -107,10 +107,26 @@ public class POOBkemon {
                 "A fighting dance that sharply raises Attack.",
                 0, true
         ));
+        ArrayList<Effect> thunderEffects = new ArrayList<>();
+        thunderEffects.add(new StatusEffect("Paralized", 30));
+        movements.put("Thunder", new Move(
+                "Thunder", "Electric", "Special",
+                10, 110, 70, 0,
+                thunderEffects,
+                "A lightning attack that may cause paralysis.",
+                6, false
+        ));
+        ArrayList<Effect> EarthquakeEffects = new ArrayList<>();
+        movements.put("Earthquake", new Move(
+                "Earthquake", "Ground", "Physical",
+                10, 100, 100, 0,
+                EarthquakeEffects,
+                "A powerful quake, but has no effect on flying foes.",
+                6, false
+        ));
     }
 
     private void generatePokemons(){
-        List<String> types = new ArrayList<>();
         pokemons.put("Sceptile",new Pokemon(new ArrayList<>(List.of("Grass")),"Sceptile",281,null,276, 206, 166, 246,206, new ArrayList<>(),100, "In the jungle, its power is without equal. This Pokémon carefully grows trees and plants. It regulates its body temperature by basking in sunlight.", false));
         pokemons.put("Charizard",new Pokemon(new ArrayList<>(List.of("Fire","Flying")), "Charizard", 297, null, 236, 204, 192, 254, 206, new ArrayList<>(), 100, "A Charizard flies about in search of strong opponents. It breathes intense flames that can melt any material. However, it will never torch a weaker foe.", false));
         pokemons.put("Raichu",new Pokemon(new ArrayList<>(List.of("Electric")),"Raichu",261,null,256,216,146,216,196, new ArrayList<>(),100,"If it stores too much electricity, its behavior turns aggressive. To avoid this, it occasionally discharges excess energy and calms itself down.",false));
