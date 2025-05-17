@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Potions fixed">
+    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="new pokemons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonUseSelection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/BattleField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/Battlefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/Battlefield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/ItemsBattlefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/ItemsBattlefield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/PokemonUseSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/PokemonUseSelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/PoobkemonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/PoobkemonGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/POOBkemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/POOBkemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +210,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747498692782</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="falides moves fixed">
+      <option name="closed" value="true" />
+      <created>1747504856001</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747504856001</updated>
+    </task>
+    <task id="LOCAL-00008" summary="new pokemons">
+      <option name="closed" value="true" />
+      <created>1747507269849</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747507269849</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +248,9 @@
     <MESSAGE value="is alvie move" />
     <MESSAGE value="machine-player error" />
     <MESSAGE value="Potions fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Potions fixed" />
+    <MESSAGE value="falides moves fixed" />
+    <MESSAGE value="new pokemons" />
+    <option name="LAST_COMMIT_MESSAGE" value="new pokemons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
