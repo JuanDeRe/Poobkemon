@@ -481,8 +481,7 @@ public class PokemonSelection extends JPanel {
                     "Player 1", team, itemsWithQty, "Red");
 
             // 3. Crear IA
-            mainGui.getGame().createTrainerMachine("expert");
-            Machine ai = (Machine) mainGui.getGame().getTrainers().get(1);
+            Machine ai = mainGui.getGame().createTrainerMachine("expert");
 
             // 4. Iniciar batalla lógica
             mainGui.getGame().startOnePlayerBattle(player, ai);

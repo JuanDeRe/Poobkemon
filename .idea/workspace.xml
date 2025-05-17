@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="">
+    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="is alvie move">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/logs/poobkemon_errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/logs/poobkemon_errors.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/BattleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/MoveAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/MoveAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonSelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonSelection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentation/PokemonSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/PokemonSelection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,20 +165,69 @@
       <workItem from="1747438350052" duration="2210000" />
       <workItem from="1747444045267" duration="1213000" />
     </task>
+    <task id="LOCAL-00001" summary="overfailure">
+      <option name="closed" value="true" />
+      <created>1747451924822</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747451924822</updated>
+    </task>
+    <task id="LOCAL-00002" summary="is alvie move">
+      <option name="closed" value="true" />
+      <created>1747452206826</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747452206826</updated>
+    </task>
+    <task id="LOCAL-00003" summary="is alvie move">
+      <option name="closed" value="true" />
+      <created>1747452241161</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747452241161</updated>
+    </task>
+    <task id="LOCAL-00004" summary="is alvie move">
+      <option name="closed" value="true" />
+      <created>1747452264792</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747452264792</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="overfailure" />
+    <MESSAGE value="is alvie move" />
+    <option name="LAST_COMMIT_MESSAGE" value="is alvie move" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/presentation/Battlefield.java</url>
           <line>119</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
