@@ -124,13 +124,14 @@ public class Move {
 		}
 		if (!unableToMove){
 			this.pp--;
-			double adjustedAccuracy = this.precision *
-					Pokemon.STAGE_PRECISION_MULTIPLIERS.get(user.getPrecisionBoost()) /
-					Pokemon.STAGE_PRECISION_MULTIPLIERS.get(target.getEvasionBoost());
+			double userPrecisionMultiplier = Pokemon.STAGE_PRECISION_MULTIPLIERS.get(user.getPrecisionBoost());
+			double targetEvasionMultiplier = Pokemon.STAGE_PRECISION_MULTIPLIERS.get(target.getEvasionBoost());
+			double adjustedAccuracy = this.precision * userPrecisionMultiplier / targetEvasionMultiplier;
+			adjustedAccuracy = Math.max(1, Math.min(100, adjustedAccuracy));
 			failed = rand.nextInt(1, 101) > adjustedAccuracy;
 		}
 		boolean isCrit = false;
-		if(!failed || !unableToMove){
+		if(!failed && !unableToMove){
 			int critRandom = rand.nextInt(1,101);
 			if (this.category.equals("Physical") || this.category.equals("Special")) {
 				int dmg = (this.category.equals("Physical"))
