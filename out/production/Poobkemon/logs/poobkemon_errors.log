@@ -28,53 +28,18 @@
 [2025-05-10T13:22:34.593615300] PoobkemonException: No more than 4 moves
 [2025-05-10T13:22:34.608179200] PoobkemonException: Invalid name
 [2025-05-10T13:22:34.610217400] PoobkemonException: Invalid name
-[2025-05-11T13:58:38.654118900] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T13:58:38.679243700] PoobkemonException: No pokemon selected
-[2025-05-11T13:58:38.759141] PoobkemonException: No more than 4 moves
-[2025-05-11T13:58:38.800849] PoobkemonException: Invalid name
-[2025-05-11T13:58:38.804869200] PoobkemonException: Invalid name
-[2025-05-11T14:44:22.135190600] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T14:44:22.157300200] PoobkemonException: No pokemon selected
-[2025-05-11T14:44:22.221118300] PoobkemonException: No more than 4 moves
-[2025-05-11T14:44:22.264332700] PoobkemonException: Invalid name
-[2025-05-11T14:44:22.269860800] PoobkemonException: Invalid name
-[2025-05-11T17:55:49.594968900] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T17:55:49.627129800] PoobkemonException: No pokemon selected
-[2025-05-11T17:55:49.685418700] PoobkemonException: No more than 4 moves
-[2025-05-11T17:55:49.751249300] PoobkemonException: Invalid name
-[2025-05-11T17:55:49.756271300] PoobkemonException: Invalid name
-[2025-05-11T20:39:13.496542200] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T20:39:13.520542700] PoobkemonException: No pokemon selected
-[2025-05-11T20:39:13.574547400] PoobkemonException: No more than 4 moves
-[2025-05-11T20:39:13.676556300] PoobkemonException: Invalid name
-[2025-05-11T20:39:13.681555900] PoobkemonException: Invalid name
-[2025-05-11T21:17:53.127251700] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T21:17:53.148252] PoobkemonException: No pokemon selected
-[2025-05-11T21:17:53.206256900] PoobkemonException: No more than 4 moves
-[2025-05-11T21:17:53.306042600] PoobkemonException: Invalid name
-[2025-05-11T21:17:53.312042500] PoobkemonException: Invalid name
-[2025-05-11T21:18:41.905728800] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T21:18:41.931730500] PoobkemonException: No pokemon selected
-[2025-05-11T21:18:41.981733700] PoobkemonException: No more than 4 moves
-[2025-05-11T21:18:42.032739700] PoobkemonException: Invalid name
-[2025-05-11T21:18:42.039739300] PoobkemonException: Invalid name
-[2025-05-11T22:34:37.439675700] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T22:34:37.461677300] PoobkemonException: No pokemon selected
-[2025-05-11T22:34:37.535682900] PoobkemonException: No more than 4 moves
-[2025-05-11T22:34:37.597689100] PoobkemonException: Invalid name
-[2025-05-11T22:34:37.604688300] PoobkemonException: Invalid name
-[2025-05-11T22:34:57.602985300] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T22:34:57.622985900] PoobkemonException: No pokemon selected
-[2025-05-11T22:34:57.702991900] PoobkemonException: No more than 4 moves
-[2025-05-11T22:34:57.762996900] PoobkemonException: Invalid name
-[2025-05-11T22:34:57.767997400] PoobkemonException: Invalid name
-[2025-05-11T22:35:04.111828900] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T22:35:04.136829300] PoobkemonException: No pokemon selected
-[2025-05-11T22:35:04.246838100] PoobkemonException: No more than 4 moves
-[2025-05-11T22:35:04.325843900] PoobkemonException: Invalid name
-[2025-05-11T22:35:04.329844800] PoobkemonException: Invalid name
-[2025-05-11T22:35:53.212839400] PoobkemonException: Tipo de máquina inválido: invalid_type
-[2025-05-11T22:35:53.233842200] PoobkemonException: No pokemon selected
-[2025-05-11T22:35:53.310848600] PoobkemonException: No more than 4 moves
-[2025-05-11T22:35:53.370851500] PoobkemonException: Invalid name
-[2025-05-11T22:35:53.373852700] PoobkemonException: Invalid name
+[2025-05-16T10:44:05.421900800] PoobkemonException: Tipo de máquina inválido: invalid_type
+[2025-05-16T10:44:05.428908700] PoobkemonException: No pokemon selected
+[2025-05-16T10:44:05.439434600] PoobkemonException: No more than 4 moves
+[2025-05-16T10:44:05.447434100] PoobkemonException: Invalid name
+[2025-05-16T10:44:05.448433700] PoobkemonException: Invalid name
+[2025-05-16T20:20:54.709612300] PoobkemonException: Tipo de máquina inválido: invalid_type
+[2025-05-16T20:20:54.732615400] PoobkemonException: No pokemon selected
+[2025-05-16T20:20:54.806619800] PoobkemonException: No more than 4 moves
+[2025-05-16T20:20:54.867625100] PoobkemonException: Invalid name
+[2025-05-16T20:20:54.875624500] PoobkemonException: Invalid name
+[2025-05-16T20:21:11.141321] PoobkemonException: Tipo de máquina inválido: invalid_type
+[2025-05-16T20:21:11.166323900] PoobkemonException: No pokemon selected
+[2025-05-16T20:21:11.245330100] PoobkemonException: No more than 4 moves
+[2025-05-16T20:21:11.318334900] PoobkemonException: Invalid name
+[2025-05-16T20:21:11.323334700] PoobkemonException: Invalid name

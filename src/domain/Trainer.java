@@ -57,15 +57,13 @@ public abstract class  Trainer {
         inventory.replace(usedItem, inventory.get(usedItem)-1);
         if (inventory.get(usedItem) == 0){
             for(List<List<Action>> list: availableActions.values()) {
-                for(Action a : list.get(1)){
-                    String nameItemUsed    = usedItem.getName();
-                    ItemAction itemActionToDelete = (ItemAction)a;
-                    if (itemActionToDelete.getItem().getName().equals(nameItemUsed)){
-                        list.get(1).remove(itemActionToDelete);
-                    }
-                }
+                list.get(1).removeIf(a ->
+                        ((ItemAction) a).getItem().getName().equals(usedItem.getName())
+                );
             }
+            inventory.remove(usedItem);
         }
+
     }
     /**
      * Cambia el Pokémon activo por otro del equipo.

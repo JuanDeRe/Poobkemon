@@ -17,6 +17,8 @@ public class PoobkemonGUI extends JFrame{
 
     private POOBkemon game;
 
+    private Action action1, action2;
+
     private int width, heigth;
 
     protected static Font pokemonFont;
@@ -249,6 +251,30 @@ public class PoobkemonGUI extends JFrame{
     }
 
     public List<Notification> playTurn(Action action1, Action action2) {
-        return this.game.playTurn();
+        return this.game.playTurn(action1, action2);
+    }
+
+    public Action getAction1() {
+        return action1;
+    }
+
+    public void setAction1(Action action1) {
+        this.action1 = action1;
+    }
+
+    public Action getAction2() {
+        return action2;
+    }
+
+    public BattleField getBattlefieldGame(){
+        return game.getBattlefield();
+    }
+
+    public void setAction2(Action action2) {
+        this.action2 = action2;
+    }
+
+    public boolean isOver() {
+        return game.isOver();
     }
 }

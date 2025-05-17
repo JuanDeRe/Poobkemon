@@ -30,11 +30,10 @@ public class POOBkemon {
         movements = new TreeMap<>();
         this.generateItems();
         this.generateMovements();
-        this.generatePokeons();
+        this.generatePokemons();
     }
 
     private void generateMovements() {
-        // Flamethrower: Quema con 10% de probabilidad
         ArrayList<Effect> flamethrowerEffects = new ArrayList<>();
         flamethrowerEffects.add(new StatusEffect("Burn", 10));
         movements.put("Flamethrower", new Move(
@@ -45,7 +44,6 @@ public class POOBkemon {
                 6, false
         ));
 
-        // Double Team: Aumenta evasión en 1 etapa (100% de probabilidad)
         ArrayList<Effect> doubleTeamEffects = new ArrayList<>();
         doubleTeamEffects.add(new StatEffect("Evasion", 1, 100));
         movements.put("Double Team", new Move(
@@ -56,7 +54,6 @@ public class POOBkemon {
                 0, true
         ));
 
-        // Razor Leaf: Sin efectos secundarios
         movements.put("Razor Leaf", new Move(
                 "Razor Leaf", "Grass", "Physical",
                 25, 55, 95, 0,
@@ -65,7 +62,6 @@ public class POOBkemon {
                 13, false
         ));
 
-        // Rain Dance: Cambia el clima a "Rain" (100% de probabilidad)
         ArrayList<Effect> rainDanceEffects = new ArrayList<>();
         rainDanceEffects.add(new WeatherEffect("Rain", 100));
         movements.put("Rain Dance", new Move(
@@ -76,7 +72,6 @@ public class POOBkemon {
                 0, false
         ));
 
-        // Iron Defense: Aumenta defensa en 2 etapas (100% de probabilidad)
         ArrayList<Effect> ironDefenseEffects = new ArrayList<>();
         ironDefenseEffects.add(new StatEffect("Defense", 2, 100));
         movements.put("Iron Defense", new Move(
@@ -87,7 +82,6 @@ public class POOBkemon {
                 0, true
         ));
 
-        // Dragon Claw: Sin efectos secundarios
         movements.put("Dragon Claw", new Move(
                 "Dragon Claw", "Dragon", "Physical",
                 15, 80, 100, 0,
@@ -96,7 +90,6 @@ public class POOBkemon {
                 6, false
         ));
 
-        // Shadow Punch: Precisión corregida a 100%
         movements.put("Shadow Punch", new Move(
                 "Shadow Punch", "Ghost", "Physical",
                 20, 60, 1000, 0,
@@ -105,7 +98,6 @@ public class POOBkemon {
                 6, true
         ));
 
-        // Sword Dance: Aumenta ataque en 2 etapas (100% de probabilidad)
         ArrayList<Effect> swordDanceEffects = new ArrayList<>();
         swordDanceEffects.add(new StatEffect("Attack", 2, 100));
         movements.put("Sword Dance", new Move(
@@ -117,7 +109,7 @@ public class POOBkemon {
         ));
     }
 
-    private void generatePokeons(){
+    private void generatePokemons(){
         List<String> types = new ArrayList<>();
         pokemons.put("Sceptile",new Pokemon(new ArrayList<>(List.of("Grass")),"Sceptile",281,null,276, 206, 166, 246,206, new ArrayList<>(),100, "Cuando está en la selva, posee una fuerza sin igual. Este POKéMON se ocupa de que los árboles y las plantas crezcan bien. Regula su temperatura corporal con la luz del sol.", false));
         pokemons.put("Charizard",new Pokemon(new ArrayList<>(List.of("Fire","Flying")), "Charizard", 297, null, 236, 204, 192, 254, 206, new ArrayList<>(), 100, "Charizard va volando en busca de rivales fuertes. Echa fuego por la boca y es capaz de derretirlo todo. Ahora bien, si su rival es más débil que él, no usará este ataque.", false));
@@ -515,7 +507,7 @@ public class POOBkemon {
                 itemsAmounts.add(i);
             }
         }else {
-            for (Integer i : this.getTrainer1().getInventory().values()){
+            for (Integer i : this.getTrainer2().getInventory().values()){
                 itemsAmounts.add(i);
             }
         }
@@ -577,6 +569,14 @@ public class POOBkemon {
             }
         }
         return pokemonsMaxPs;
+    }
+
+    public BattleField getBattlefield() {
+        return battlefield;
+    }
+
+    public boolean isOver() {
+        return battlefield.isOver();
     }
 }
 

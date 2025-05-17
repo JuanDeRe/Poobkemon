@@ -1,7 +1,6 @@
 package src.presentation;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,19 +17,23 @@ public class PokemonUseSelection extends JPanel{
     private int activePokemonPs, activePokemonMaxPs;
     private PoobkemonGUI mainGUI;
     private BufferedImage backgroundImage, pokemonNotSelectedImage, pokemonSelectedImage;
-    private boolean toSwitch, trainer1;
+    private boolean toSwitch, trainer1, pokemonDied;
     private Font font = PoobkemonGUI.pokemonFont;
+    private Battlefield battlefieldPanel ;
     private float resolutionMultiplier = 1f;
-    private int width,height;
+    private int width,height, indexItemToUse;
 
-    public PokemonUseSelection(int width, int height, PoobkemonGUI mainGUI, boolean trainer1, boolean toSwitch, int indexItemToUse) {
+    public PokemonUseSelection(int width, int height, PoobkemonGUI mainGUI, boolean trainer1, boolean toSwitch, int indexItemToUse, boolean pokemonDied) {
         super();
         this.mainGUI = mainGUI;
         this.width = width;
         this.height = height;
         this.trainer1 = trainer1;
         this.toSwitch = toSwitch;
+        this.indexItemToUse = indexItemToUse;
+        this.battlefieldPanel = (Battlefield) this.mainGUI.getPanelBattlefield();
         this.nonActivePokemonsPanels = new ArrayList<>();
+        this.pokemonDied = pokemonDied;
         this.setBackground(Color.WHITE);
         this.setLayout(null);
         loadBackgroundImages();
@@ -152,11 +155,87 @@ public class PokemonUseSelection extends JPanel{
 
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if(toSwitch){
-
+                    mainGUI.showPanel(mainGUI.getPanelBattlefield());
+                    if(toSwitch && !pokemonDied){
+                        if( battlefieldPanel.getGameMode() == 2){
+                            battlefieldPanel.changeTurn();
+                            if(trainer1){
+                                SwingUtilities.invokeLater(() -> {
+                                    battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer2Text());
+                                    battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                                });
+                                mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(2).get(nonActivePokemonsPanels.indexOf(panel)));
+                            }
+                            else{
+                                battlefieldPanel.getActionSelector().setVisible(false);
+                                battlefieldPanel.getTrainerText().setVisible(false);
+                                battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer1Text());
+                                battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                                mainGUI.setAction2(mainGUI.getAvailableActionsTrainer2().get(2).get(nonActivePokemonsPanels.indexOf(panel)));
+                                battlefieldPanel.updatePokemon(true);
+                                battlefieldPanel.updatePokemon(false);
+                                battlefieldPanel.prepareNotifications();
+                            }
+                        }
+                        else if (battlefieldPanel.getGameMode() == 1){
+                            battlefieldPanel.getActionSelector().setVisible(false);
+                            battlefieldPanel.getTrainerText().setVisible(false);
+                            battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                            mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(2).get(nonActivePokemonsPanels.indexOf(panel)));
+                            battlefieldPanel.updatePokemon(true);
+                            battlefieldPanel.prepareNotifications();
+                        }
                     }
-                    else{
-
+                    else if (toSwitch && pokemonDied) {
+                        if( battlefieldPanel.getGameMode() == 2){
+                            if(trainer1){
+                                mainGUI.getAvailableActionsTrainer1().get(2).get(nonActivePokemonsPanels.indexOf(panel)).execute(mainGUI.getBattlefieldGame());
+                                battlefieldPanel.updatePokemon(true);
+                            }
+                            else{
+                                mainGUI.getAvailableActionsTrainer2().get(2).get(nonActivePokemonsPanels.indexOf(panel)).execute(mainGUI.getBattlefieldGame());
+                                battlefieldPanel.updatePokemon(false);
+                            }
+                        }
+                        else if (battlefieldPanel.getGameMode() == 1){
+                            mainGUI.getAvailableActionsTrainer1().get(2).get(nonActivePokemonsPanels.indexOf(panel)).execute(mainGUI.getBattlefieldGame());
+                            battlefieldPanel.updatePokemon(true);
+                        }
+                        int actualPs1 = mainGUI.getPsPokemonTrainer1();
+                        int actualPs2 = mainGUI.getPsPokemonTrainer2();
+                        battlefieldPanel.updateBarsIfLess(actualPs1, actualPs2);
+                        battlefieldPanel.updateBarsIfGreater(actualPs1, actualPs2);
+                        battlefieldPanel.getActionSelector().setVisible(true);
+                        battlefieldPanel.getTrainerText().setVisible(true);
+                        mainGUI.showPanel(mainGUI.getPanelBattlefield());
+                    }
+                    else if (!toSwitch){
+                        if( battlefieldPanel.getGameMode() == 2){
+                            battlefieldPanel.changeTurn();
+                            trainer1 = !trainer1;
+                            if(!trainer1){
+                                SwingUtilities.invokeLater(() -> {
+                                    battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer2Text());
+                                    battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                                });
+                                mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(1).get(indexItemToUse));
+                            }
+                            else{
+                                battlefieldPanel.getActionSelector().setVisible(false);
+                                battlefieldPanel.getTrainerText().setVisible(false);
+                                battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer1Text());
+                                battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                                mainGUI.setAction2(mainGUI.getAvailableActionsTrainer2().get(1).get(indexItemToUse));
+                                battlefieldPanel.prepareNotifications();
+                            }
+                        }
+                        else if (battlefieldPanel.getGameMode() == 1){
+                            battlefieldPanel.getActionSelector().setVisible(false);
+                            battlefieldPanel.getTrainerText().setVisible(false);
+                            battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                            mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(1).get(indexItemToUse));
+                            battlefieldPanel.prepareNotifications();
+                        }
                     }
                 }
             });
@@ -164,18 +243,41 @@ public class PokemonUseSelection extends JPanel{
 
         activePokemonPanel.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(MouseEvent e) {
-            }
+            public void mouseEntered(MouseEvent e) {}
 
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) {}
 
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(!toSwitch){
-
+                    mainGUI.showPanel(mainGUI.getPanelBattlefield());
+                    if( battlefieldPanel.getGameMode() == 2){
+                        battlefieldPanel.changeTurn();
+                        trainer1 = !trainer1;
+                        if(!trainer1){
+                            SwingUtilities.invokeLater(() -> {
+                                battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer2Text());
+                                battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                            });
+                            mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(1).get(indexItemToUse));
+                        }
+                        else{
+                            battlefieldPanel.getActionSelector().setVisible(false);
+                            battlefieldPanel.getTrainerText().setVisible(false);
+                            battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer1Text());
+                            battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                            mainGUI.setAction2(mainGUI.getAvailableActionsTrainer2().get(1).get(indexItemToUse));
+                            battlefieldPanel.prepareNotifications();
+                        }
+                    }
+                    else if (battlefieldPanel.getGameMode() == 1){
+                        battlefieldPanel.getActionSelector().setVisible(false);
+                        battlefieldPanel.getTrainerText().setVisible(false);
+                        battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
+                        mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(1).get(indexItemToUse));
+                        battlefieldPanel.prepareNotifications();
+                    }
                 }
             }
         });
@@ -191,10 +293,10 @@ public class PokemonUseSelection extends JPanel{
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(toSwitch){
+                if(toSwitch && !pokemonDied){
                     mainGUI.showPanel(mainGUI.getPanelBattlefield());
                 }
-                else{
+                else if (!toSwitch){
                     mainGUI.showPanel(mainGUI.getPanelBattlefieldBag());
                 }
             }

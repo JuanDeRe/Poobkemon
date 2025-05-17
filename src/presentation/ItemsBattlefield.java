@@ -67,7 +67,7 @@ public class ItemsBattlefield extends JPanel {
             panel.setBounds(this.width/2,counterItems*this.height/10, 23*this.width/50,this.height/12);
             itemName = new JLabel(i, SwingConstants.LEFT);
             itemName.setFont(font.deriveFont(50f*resolutionMultiplier));
-            itemAmount = new JLabel("x "+itemsAmounts.get(counterItems-1).toString(), SwingConstants.RIGHT);
+            itemAmount = new JLabel("x "+itemsAmounts.get(itemsNames.indexOf(i)).toString(), SwingConstants.RIGHT);
             itemAmount.setFont(font.deriveFont(50f*resolutionMultiplier));
             panel.add(itemName,BorderLayout.CENTER);
             panel.add(itemAmount,BorderLayout.EAST);
@@ -200,7 +200,7 @@ public class ItemsBattlefield extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e){
-                JPanel panel = new PokemonUseSelection(width,height,mainGUI,trainer1,false,indexItemToUse);
+                JPanel panel = new PokemonUseSelection(width,height,mainGUI,trainer1,false,indexItemToUse, false);
                 mainGUI.showPanel(panel);
             }
         });

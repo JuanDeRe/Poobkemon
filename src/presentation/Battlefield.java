@@ -1,7 +1,6 @@
 package src.presentation;
 
 import src.domain.*;
-import src.domain.Action;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Battlefield extends JPanel {
-    private JPanel actionSelector1, actionSelector2, movesPanel, actionsAndNotificationPanel, pokemon, fight, bag, ppPanel, move1, move2,move3,move4, attacksPanel;
+    private JPanel actionSelector, actionSelector2, movesPanel, actionsAndNotificationPanel, pokemon, fight, bag, ppPanel, move1, move2,move3,move4, attacksPanel;
 
     private ItemsBattlefield itemsPanel;
 
@@ -26,7 +25,7 @@ public class Battlefield extends JPanel {
 
     private JProgressBar psBar1, psBar2;
 
-    private JTextArea trainer1Text, trainer2Text;
+    private JTextArea trainerText;
 
     int width, height, notificationHeight;
 
@@ -34,13 +33,15 @@ public class Battlefield extends JPanel {
 
     private Font font = PoobkemonGUI.pokemonFont;
 
+    private String trainer1Text, trainer2Text;
+
     private PoobkemonGUI mainGui;
 
     private List<String> moveNames, moveTypes;
 
     private List<Integer>  ppMoves, ppMaxMoves;
 
-    private Action action1, action2;
+//    private Action action1, action2;
 
     private List<Notification> turnNotifications;
 
@@ -148,8 +149,8 @@ public class Battlefield extends JPanel {
         lifePanel.add(panel, BorderLayout.NORTH);
         panel = makeTransparentPanel();
         panel.setLayout(new BorderLayout());
-        psBar1 = new JProgressBar(0,mainGui.getMaxPsPokemonTrainer2());
-        psBar1.setValue(mainGui.getPsPokemonTrainer2());
+        psBar1 = new JProgressBar(0,mainGui.getMaxPsPokemonTrainer1());
+        psBar1.setValue(mainGui.getPsPokemonTrainer1());
         label = new JLabel("HP", SwingConstants.CENTER);
         label.setFont(font.deriveFont(35f*resolutionMultiplier));
         panel.add(psBar1,BorderLayout.CENTER);
@@ -170,10 +171,10 @@ public class Battlefield extends JPanel {
     private void prepareElementsHumanVsHuman() {
         JLabel label;
 
-        actionSelector2 = makePanelWithBackground(actionsBackgroundImage);
-        actionSelector2.setLayout(new GridLayout(2,2));
-        actionSelector2.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        actionSelector2.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
+        actionSelector = makePanelWithBackground(actionsBackgroundImage);
+        actionSelector.setLayout(new GridLayout(2,2));
+        actionSelector.setPreferredSize(new Dimension(this.width/2, notificationHeight));
+        actionSelector.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
         fight = makeTransparentPanel();
         fight.setLayout(new BorderLayout());
         label = new JLabel("FIGHT", SwingConstants.CENTER);
@@ -191,72 +192,35 @@ public class Battlefield extends JPanel {
         pokemon.add(label,BorderLayout.CENTER);
         label = new JLabel("RUN", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        actionSelector2.add(fight,0);
-        actionSelector2.add(bag,1);
-        actionSelector2.add(pokemon,2);
-        actionSelector2.add(label,3);
-        actionsAndNotificationPanel.add(actionSelector2, BorderLayout.EAST);
+        actionSelector.add(fight,0);
+        actionSelector.add(bag,1);
+        actionSelector.add(pokemon,2);
+        actionSelector.add(label,3);
+        actionsAndNotificationPanel.add(actionSelector, BorderLayout.EAST);
 
-        actionSelector1 = makePanelWithBackground(actionsBackgroundImage);
-        actionSelector1.setLayout(new GridLayout(2,2));
-        actionSelector1.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        actionSelector1.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
-        fight = makeTransparentPanel();
-        fight.setLayout(new BorderLayout());
-        label = new JLabel("FIGHT", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        fight.add(label,BorderLayout.CENTER);
-        bag = makeTransparentPanel();
-        bag.setLayout(new BorderLayout());
-        label = new JLabel("BAG", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        bag.add(label,BorderLayout.CENTER);
-        pokemon = makeTransparentPanel();
-        pokemon.setLayout(new BorderLayout());
-        label = new JLabel("POKEMON", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        pokemon.add(label,BorderLayout.CENTER);
-        label = new JLabel("RUN", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        actionSelector1.add(fight,0);
-        actionSelector1.add(bag,1);
-        actionSelector1.add(pokemon,2);
-        actionSelector1.add(label,3);
-        actionsAndNotificationPanel.add(actionSelector1, BorderLayout.EAST);
+        trainer2Text = "What will\n"+ mainGui.getNameActivePokemonTrainer2()+" do?";
+        trainer1Text  = "What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?";
 
-        trainer2Text = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer2()+" do?");
-        trainer2Text.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        trainer2Text.setFont(font.deriveFont(70f*resolutionMultiplier));
-        trainer2Text.setForeground(Color.WHITE);
-        trainer2Text.setOpaque(false);
-        trainer2Text.setEditable(false);
-        trainer2Text.setFocusable(false);
-        trainer2Text.setLineWrap(true);
-        trainer2Text.setWrapStyleWord(true);
-        trainer2Text.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
-        actionsAndNotificationPanel.add(trainer2Text, BorderLayout.WEST);
 
-        trainer1Text = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?");
-        trainer1Text.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        trainer1Text.setFont(font.deriveFont(70f*resolutionMultiplier));
-        trainer1Text.setForeground(Color.WHITE);
-        trainer1Text.setOpaque(false);
-        trainer1Text.setEditable(false);
-        trainer1Text.setFocusable(false);
-        trainer1Text.setLineWrap(true);
-        trainer1Text.setWrapStyleWord(true);
-        trainer1Text.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
-        actionsAndNotificationPanel.add(trainer1Text, BorderLayout.WEST);
-        actionSelector2.setVisible(false);
-        trainer2Text.setVisible(false);
+        trainerText = new JTextArea(trainer1Text);
+        trainerText.setPreferredSize(new Dimension(this.width/2, notificationHeight));
+        trainerText.setFont(font.deriveFont(70f*resolutionMultiplier));
+        trainerText.setForeground(Color.WHITE);
+        trainerText.setOpaque(false);
+        trainerText.setEditable(false);
+        trainerText.setFocusable(false);
+        trainerText.setLineWrap(true);
+        trainerText.setWrapStyleWord(true);
+        trainerText.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
+        actionsAndNotificationPanel.add(trainerText, BorderLayout.WEST);
     }
 
     private void prepareElementsHumanVsAi() {
         JLabel label;
-        actionSelector1 = makePanelWithBackground(actionsBackgroundImage);
-        actionSelector1.setLayout(new GridLayout(2,2));
-        actionSelector1.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        actionSelector1.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
+        actionSelector = makePanelWithBackground(actionsBackgroundImage);
+        actionSelector.setLayout(new GridLayout(2,2));
+        actionSelector.setPreferredSize(new Dimension(this.width/2, notificationHeight));
+        actionSelector.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
         fight = makeTransparentPanel();
         fight.setLayout(new BorderLayout());
         label = new JLabel("FIGHT", SwingConstants.CENTER);
@@ -274,32 +238,32 @@ public class Battlefield extends JPanel {
         pokemon.add(label,BorderLayout.CENTER);
         label = new JLabel("RUN", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        actionSelector1.add(fight,0);
-        actionSelector1.add(bag,1);
-        actionSelector1.add(pokemon,2);
-        actionSelector1.add(label,3);
+        actionSelector.add(fight,0);
+        actionSelector.add(bag,1);
+        actionSelector.add(pokemon,2);
+        actionSelector.add(label,3);
 
-        actionsAndNotificationPanel.add(actionSelector1, BorderLayout.EAST);
+        actionsAndNotificationPanel.add(actionSelector, BorderLayout.EAST);
 
-        trainer1Text = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?");
-        trainer1Text.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        trainer1Text.setFont(font.deriveFont(70f*resolutionMultiplier));
-        trainer1Text.setForeground(Color.WHITE);
-        trainer1Text.setOpaque(false);
-        trainer1Text.setEditable(false);
-        trainer1Text.setFocusable(false);
-        trainer1Text.setLineWrap(true);
-        trainer1Text.setWrapStyleWord(true);
-        trainer1Text.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
-        actionsAndNotificationPanel.add(trainer1Text, BorderLayout.WEST);
+        trainerText = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?");
+        trainerText.setPreferredSize(new Dimension(this.width/2, notificationHeight));
+        trainerText.setFont(font.deriveFont(70f*resolutionMultiplier));
+        trainerText.setForeground(Color.WHITE);
+        trainerText.setOpaque(false);
+        trainerText.setEditable(false);
+        trainerText.setFocusable(false);
+        trainerText.setLineWrap(true);
+        trainerText.setWrapStyleWord(true);
+        trainerText.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
+        actionsAndNotificationPanel.add(trainerText, BorderLayout.WEST);
     }
 
     private void prepareElementsAiVsAi() {
         JLabel label;
-        actionSelector1 = makePanelWithBackground(actionsBackgroundImage);
-        actionSelector1.setLayout(new GridLayout(2,2));
-        actionSelector1.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        actionSelector1.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
+        actionSelector = makePanelWithBackground(actionsBackgroundImage);
+        actionSelector.setLayout(new GridLayout(2,2));
+        actionSelector.setPreferredSize(new Dimension(this.width/2, notificationHeight));
+        actionSelector.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
         fight = makeTransparentPanel();
         fight.setLayout(new BorderLayout());
         label = new JLabel("FIGHT", SwingConstants.CENTER);
@@ -317,24 +281,24 @@ public class Battlefield extends JPanel {
         pokemon.add(label,BorderLayout.CENTER);
         label = new JLabel("RUN", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        actionSelector1.add(fight,0);
-        actionSelector1.add(bag,1);
-        actionSelector1.add(pokemon,2);
-        actionSelector1.add(label,3);
+        actionSelector.add(fight,0);
+        actionSelector.add(bag,1);
+        actionSelector.add(pokemon,2);
+        actionSelector.add(label,3);
 
-        actionsAndNotificationPanel.add(actionSelector1, BorderLayout.EAST);
+        actionsAndNotificationPanel.add(actionSelector, BorderLayout.EAST);
 
-        trainer1Text = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?");
-        trainer1Text.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        trainer1Text.setFont(font.deriveFont(70f*resolutionMultiplier));
-        trainer1Text.setForeground(Color.WHITE);
-        trainer1Text.setOpaque(false);
-        trainer1Text.setEditable(false);
-        trainer1Text.setFocusable(false);
-        trainer1Text.setLineWrap(true);
-        trainer1Text.setWrapStyleWord(true);
-        trainer1Text.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
-        actionsAndNotificationPanel.add(trainer1Text, BorderLayout.WEST);
+        trainerText = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?");
+        trainerText.setPreferredSize(new Dimension(this.width/2, notificationHeight));
+        trainerText.setFont(font.deriveFont(70f*resolutionMultiplier));
+        trainerText.setForeground(Color.WHITE);
+        trainerText.setOpaque(false);
+        trainerText.setEditable(false);
+        trainerText.setFocusable(false);
+        trainerText.setLineWrap(true);
+        trainerText.setWrapStyleWord(true);
+        trainerText.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
+        actionsAndNotificationPanel.add(trainerText, BorderLayout.WEST);
     }
 
     private JPanel prepareAttacksPanel(){
@@ -455,16 +419,16 @@ public class Battlefield extends JPanel {
         actionsBackgroundImage = ImageLoader.loadImage("resources/Images/ActionsBackground.png", this.width, notificationHeight);
     }
 
-    private void prepareNotifications(){
+    protected void prepareNotifications(){
         turnNotifications = null;
         if(gameMode == 0 ){
             turnNotifications = mainGui.playTurn();
         }
         else if(gameMode == 1){
-            turnNotifications = mainGui.playTurn(action1);
+            turnNotifications = mainGui.playTurn(mainGui.getAction1());
         }
         else if(gameMode == 2){
-            turnNotifications = mainGui.playTurn(action1,action2);
+            turnNotifications = mainGui.playTurn(mainGui.getAction1(),mainGui.getAction2());
         }
 
         JTextArea notificationsTextArea =new JTextArea();
@@ -486,7 +450,7 @@ public class Battlefield extends JPanel {
         for (Notification n : turnNotifications) {
             for (String message : n.getMessage()) {
                 allMessages.add(message);
-                notificationsForMessages.add(n); // Asociar mensaje con su notificación
+                notificationsForMessages.add(n);
             }
         }
 
@@ -497,7 +461,52 @@ public class Battlefield extends JPanel {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (showingNotifications && currentMessageIndex < allMessages.size()) {
+
+                int actualPs1 = mainGui.getPsPokemonTrainer1();
+                int actualPs2 = mainGui.getPsPokemonTrainer2();
+                if (currentMessageIndex >= allMessages.size()) {
+                    showingNotifications = false;
+                    notificationsTextArea.setVisible(false);
+                    if(!mainGui.isOver()){
+                        if (actualPs1 == 0 && (gameMode == 1 || gameMode == 2)){
+                            switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, true, true, -1,true);
+                            mainGui.showPanel(switchPokemonPanel);
+                        }
+                        else if (actualPs2 == 0 && gameMode == 2){
+                            switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, false, true, -1,true);
+                            mainGui.showPanel(switchPokemonPanel);
+                        }
+                        else{
+                            updateBarsIfLess(actualPs1, actualPs2);
+                            updateBarsIfGreater(actualPs1, actualPs2);
+                            notificationsTextArea.setVisible(false);
+                            actionSelector.setVisible(true);
+                            trainerText.setVisible(true);
+                            mainGui.showPanel(mainGui.getPanelBattlefield());
+                        }
+                    }
+                    else{
+                        String message = "";
+                        if (actualPs1 == 0 ){
+                            message = "The winner is Trainer 2";
+                        }
+                        else if (actualPs2 == 0){
+                            message = "The winner is Trainer 1";
+                        }
+                        int respuesta = JOptionPane.showConfirmDialog(
+                                null,
+                                message,
+                                "Battle winner",
+                                JOptionPane.DEFAULT_OPTION
+                        );
+
+                        if (respuesta == JOptionPane.OK_OPTION) {
+                            mainGui.showPanel(mainGui.getPanelIntro());
+                        }
+                    }
+                }
+
+                else if (showingNotifications && currentMessageIndex < allMessages.size()) {
 
                     String currentMessage = allMessages.get(currentMessageIndex);
                     Notification currentNotification = notificationsForMessages.get(currentMessageIndex);
@@ -505,9 +514,6 @@ public class Battlefield extends JPanel {
                     SwingUtilities.invokeLater(() ->
                             notificationsTextArea.setText(currentMessage)
                     );
-
-                    int actualPs1 = mainGui.getPsPokemonTrainer1();
-                    int actualPs2 = mainGui.getPsPokemonTrainer2();
 
                     if (currentNotification instanceof MoveNotification) {
                         updateBarsIfLess(actualPs1, actualPs2);
@@ -517,16 +523,6 @@ public class Battlefield extends JPanel {
                     }
 
                     currentMessageIndex++;
-
-                    if (currentMessageIndex >= allMessages.size()) {
-                        updateBarsIfLess(actualPs1, actualPs2);
-                        updateBarsIfGreater(actualPs1, actualPs2);
-                        showingNotifications = false;
-                        notificationsTextArea.setVisible(false);
-                        actionSelector1.setVisible(true);
-                        trainer1Text.setVisible(true);
-                        mainGui.showPanel(mainGui.getPanelBattlefield());
-                    }
                 }
             }
         });
@@ -537,7 +533,7 @@ public class Battlefield extends JPanel {
 
     }
 
-    private void updateBarsIfLess(int ps1, int ps2) {
+    protected void updateBarsIfLess(int ps1, int ps2) {
         if (ps1 < psBar1.getValue()) {
             animateBar(psBar1, ps1);
             pokemon1Life.setText(ps1 + "/" + mainGui.getMaxPsPokemonTrainer1());
@@ -548,7 +544,7 @@ public class Battlefield extends JPanel {
         }
     }
 
-    private void updateBarsIfGreater(int ps1, int ps2) {
+    protected void updateBarsIfGreater(int ps1, int ps2) {
         if (ps1 > psBar1.getValue()) {
             animateBar(psBar1, ps1);
             pokemon1Life.setText(ps1 + "/" + mainGui.getMaxPsPokemonTrainer1());
@@ -627,7 +623,7 @@ public class Battlefield extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, trainer1Turn, true, -1);
+                switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, trainer1Turn, true, -1,false);
                 mainGui.showPanel(switchPokemonPanel);
             }
         });
@@ -690,7 +686,7 @@ public class Battlefield extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, trainer1Turn, true,-1);
+                switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, trainer1Turn, true,-1,false);
                 mainGui.showPanel(switchPokemonPanel);
             }
         });
@@ -722,47 +718,36 @@ public class Battlefield extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (ppMoves.get(0) > 0){
-                    //cosas
                     attacksPanel.setVisible(false);
                     if(gameMode == 2){
                         trainer1Turn = !trainer1Turn;
                         if(!trainer1Turn){
                             SwingUtilities.invokeLater(() -> {
-                                actionSelector1.setVisible(false);
-                                trainer1Text.setVisible(false);
-                                actionSelector2.setVisible(true);
-                                trainer2Text.setVisible(true);
-                                actionsAndNotificationPanel.setVisible(true);
                                 attacksPanel.setVisible(false);
+                                actionSelector.setVisible(true);
+                                trainerText.setVisible(true);
+                                trainerText.setText(trainer2Text);
+                                actionsAndNotificationPanel.setVisible(true);
                             });
-                            actionsAndNotificationPanel.setVisible(true);
-                            attacksPanel.setVisible(false);
-                            // Forzar actualización de la interfaz
-                            //actionsAndNotificationPanel.revalidate();
-                            //actionsAndNotificationPanel.repaint();
-
-                            action1 = mainGui.getAvailableActionsTrainer1().get(0).get(0);
+                            mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(0));
                         }
                         else{
-                            actionSelector2.setVisible(false);
-                            trainer2Text.setVisible(false);
-                            showingNotifications = true;
-                            action2 = mainGui.getAvailableActionsTrainer2().get(0).get(0);
-                            prepareNotifications();
+                            trainerText.setText(trainer1Text);
                             attacksPanel.setVisible(false);
+                            actionSelector.setVisible(false);
+                            trainerText.setVisible(false);
                             actionsAndNotificationPanel.setVisible(true);
+                            mainGui.setAction2(mainGui.getAvailableActionsTrainer2().get(0).get(0));
+                            prepareNotifications();
                         }
                     }
                     else if (gameMode == 1){
                         attacksPanel.setVisible(false);
-                        actionSelector1.setVisible(false);
-                        trainer1Text.setVisible(false);
+                        actionSelector.setVisible(false);
+                        trainerText.setVisible(false);
                         actionsAndNotificationPanel.setVisible(true);
-                        action1 = mainGui.getAvailableActionsTrainer1().get(0).get(0);
-                        showingNotifications = true;
+                        mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(0));
                         prepareNotifications();
-                        attacksPanel.setVisible(false);
-                        actionsAndNotificationPanel.setVisible(true);
                     }
                 }
             }
@@ -794,42 +779,32 @@ public class Battlefield extends JPanel {
                     if(gameMode == 2){
                         trainer1Turn = !trainer1Turn;
                         if(!trainer1Turn){
-                            actionSelector1.setVisible(false);
-                            trainer1Text.setVisible(false);
-
-                            // Hacer visibles los componentes del segundo entrenador
-                            actionSelector2.setVisible(true);
-                            trainer2Text.setVisible(true);
-
-                            // Asegurar que el panel de acciones y notificaciones sea visible
-                            actionsAndNotificationPanel.setVisible(true);
-                            attacksPanel.setVisible(false);
-
-                            // Forzar actualización de la interfaz
-                            actionsAndNotificationPanel.revalidate();
-                            actionsAndNotificationPanel.repaint();
-                            action1 = mainGui.getAvailableActionsTrainer1().get(0).get(1);
+                            SwingUtilities.invokeLater(() -> {
+                                attacksPanel.setVisible(false);
+                                actionSelector.setVisible(true);
+                                trainerText.setVisible(true);
+                                trainerText.setText(trainer2Text);
+                                actionsAndNotificationPanel.setVisible(true);
+                            });
+                            mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(1));
                         }
                         else{
-                            actionSelector2.setVisible(false);
-                            trainer2Text.setVisible(false);
-                            showingNotifications = true;
-                            action2 = mainGui.getAvailableActionsTrainer2().get(0).get(1);
-                            prepareNotifications();
+                            trainerText.setText(trainer1Text);
                             attacksPanel.setVisible(false);
+                            actionSelector.setVisible(false);
+                            trainerText.setVisible(false);
                             actionsAndNotificationPanel.setVisible(true);
+                            mainGui.setAction2(mainGui.getAvailableActionsTrainer2().get(0).get(1));
+                            prepareNotifications();
                         }
                     }
                     else if (gameMode == 1){
                         attacksPanel.setVisible(false);
-                        actionSelector1.setVisible(false);
-                        trainer1Text.setVisible(false);
+                        actionSelector.setVisible(false);
+                        trainerText.setVisible(false);
                         actionsAndNotificationPanel.setVisible(true);
-                        action1 = mainGui.getAvailableActionsTrainer1().get(0).get(1);
-                        showingNotifications = true;
+                        mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(1));
                         prepareNotifications();
-                        attacksPanel.setVisible(false);
-                        actionsAndNotificationPanel.setVisible(true);
                     }
                 }
             }
@@ -861,42 +836,32 @@ public class Battlefield extends JPanel {
                     if(gameMode == 2){
                         trainer1Turn = !trainer1Turn;
                         if(!trainer1Turn){
-                            actionSelector1.setVisible(false);
-                            trainer1Text.setVisible(false);
-
-                            // Hacer visibles los componentes del segundo entrenador
-                            actionSelector2.setVisible(true);
-                            trainer2Text.setVisible(true);
-
-                            // Asegurar que el panel de acciones y notificaciones sea visible
-                            actionsAndNotificationPanel.setVisible(true);
-                            attacksPanel.setVisible(false);
-
-                            // Forzar actualización de la interfaz
-                            actionsAndNotificationPanel.revalidate();
-                            actionsAndNotificationPanel.repaint();
-                            action1 = mainGui.getAvailableActionsTrainer1().get(0).get(2);
+                            SwingUtilities.invokeLater(() -> {
+                                attacksPanel.setVisible(false);
+                                actionSelector.setVisible(true);
+                                trainerText.setVisible(true);
+                                trainerText.setText(trainer2Text);
+                                actionsAndNotificationPanel.setVisible(true);
+                            });
+                            mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(2));
                         }
                         else{
-                            actionSelector2.setVisible(false);
-                            trainer2Text.setVisible(false);
-                            showingNotifications = true;
-                            action2 = mainGui.getAvailableActionsTrainer2().get(0).get(2);
-                            prepareNotifications();
+                            trainerText.setText(trainer1Text);
                             attacksPanel.setVisible(false);
+                            actionSelector.setVisible(false);
+                            trainerText.setVisible(false);
                             actionsAndNotificationPanel.setVisible(true);
+                            mainGui.setAction2(mainGui.getAvailableActionsTrainer2().get(0).get(2));
+                            prepareNotifications();
                         }
                     }
                     else if (gameMode == 1){
                         attacksPanel.setVisible(false);
-                        actionSelector1.setVisible(false);
-                        trainer1Text.setVisible(false);
+                        actionSelector.setVisible(false);
+                        trainerText.setVisible(false);
                         actionsAndNotificationPanel.setVisible(true);
-                        action1 = mainGui.getAvailableActionsTrainer1().get(0).get(2);
-                        showingNotifications = true;
+                        mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(2));
                         prepareNotifications();
-                        attacksPanel.setVisible(false);
-                        actionsAndNotificationPanel.setVisible(true);
                     }
                 }
             }
@@ -928,57 +893,91 @@ public class Battlefield extends JPanel {
                     if(gameMode == 2){
                         trainer1Turn = !trainer1Turn;
                         if(!trainer1Turn){
-                            actionSelector1.setVisible(false);
-                            trainer1Text.setVisible(false);
-
-                            // Hacer visibles los componentes del segundo entrenador
-                            actionSelector2.setVisible(true);
-                            trainer2Text.setVisible(true);
-
-                            // Asegurar que el panel de acciones y notificaciones sea visible
-                            actionsAndNotificationPanel.setVisible(true);
-                            attacksPanel.setVisible(false);
-
-                            // Forzar actualización de la interfaz
-                            actionsAndNotificationPanel.revalidate();
-                            actionsAndNotificationPanel.repaint();
-                            action1 = mainGui.getAvailableActionsTrainer1().get(0).get(3);
+                            SwingUtilities.invokeLater(() -> {
+                                attacksPanel.setVisible(false);
+                                actionSelector.setVisible(true);
+                                trainerText.setVisible(true);
+                                trainerText.setText(trainer2Text);
+                                actionsAndNotificationPanel.setVisible(true);
+                            });
+                            mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(3));
                         }
                         else{
-
-                            actionSelector2.setVisible(false);
-                            trainer2Text.setVisible(false);
-                            showingNotifications = true;
-                            action2 = mainGui.getAvailableActionsTrainer2().get(0).get(3);
-                            prepareNotifications();
+                            trainerText.setText(trainer1Text);
                             attacksPanel.setVisible(false);
+                            actionSelector.setVisible(false);
+                            trainerText.setVisible(false);
                             actionsAndNotificationPanel.setVisible(true);
+                            mainGui.setAction2(mainGui.getAvailableActionsTrainer2().get(0).get(3));
+                            prepareNotifications();
                         }
                     }
                     else if (gameMode == 1){
                         attacksPanel.setVisible(false);
-                        actionSelector1.setVisible(false);
-                        trainer1Text.setVisible(false);
+                        actionSelector.setVisible(false);
+                        trainerText.setVisible(false);
                         actionsAndNotificationPanel.setVisible(true);
-                        action1 = mainGui.getAvailableActionsTrainer1().get(0).get(3);
-                        showingNotifications = true;
+                        mainGui.setAction1(mainGui.getAvailableActionsTrainer1().get(0).get(3));
                         prepareNotifications();
-                        attacksPanel.setVisible(false);
-                        actionsAndNotificationPanel.setVisible(true); // Mostrar panel de notificaciones
                     }
                 }
             }
         });
     }
 
-    public void changeTurnPanels(){
-        if (trainer1Turn){
-
-        }
+    public byte getGameMode() {
+        return gameMode;
     }
 
-    public void changeturn() {
-        trainer1Turn = !trainer1Turn;
+    public JPanel getActionSelector(){
+        return actionSelector;
+    }
+
+    protected JTextArea getTrainerText() {
+        return trainerText;
+    }
+
+    public JPanel getActionsAndNotificationPanel() {
+        return actionsAndNotificationPanel;
+    }
+
+    public String getTrainer1Text() {
+        return trainer1Text;
+    }
+
+    public String getTrainer2Text() {
+        return trainer2Text;
+    }
+
+    public void changeTurn() {
+        this.trainer1Turn = !this.trainer1Turn;
+    }
+
+    public void updatePokemon(boolean trainer1){
+        if(trainer1){
+            int pokemon1MaxPs = mainGui.getMaxPsPokemonTrainer1();
+            int pokemon1CurrentPs = mainGui.getPsPokemonTrainer1();
+            String pokemonName = mainGui.getNameActivePokemonTrainer1();
+            pokemon1Image = ImageLoader.loadImage("resources/Images/BackSprite/"+pokemonName+".png", this.width/3, (this.height-notificationHeight)/2);
+            pokemon1Label.setIcon(new ImageIcon(pokemon1Image));
+            psBar1.setMaximum(pokemon1MaxPs);
+            psBar1.setValue(pokemon1CurrentPs);
+            pokemon1Name.setText(pokemonName);
+            pokemon1Life.setText(pokemon1CurrentPs+"/"+pokemon1MaxPs);
+            trainer1Text  = "What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?";
+        }
+        else{
+            int pokemon2MaxPs = mainGui.getMaxPsPokemonTrainer2();
+            int pokemon2CurrentPs = mainGui.getPsPokemonTrainer2();
+            String pokemonName = mainGui.getNameActivePokemonTrainer2();
+            pokemon2Image = ImageLoader.loadImage("resources/Gifs/Pokemons/"+pokemonName+".gif", (this.width/3), (this.height-notificationHeight)/2);
+            pokemon2Label.setIcon(new ImageIcon(pokemon2Image));
+            psBar2.setMaximum(pokemon2MaxPs);
+            psBar2.setValue(pokemon2CurrentPs);
+            pokemon2Name.setText(pokemonName);
+            pokemon2Life.setText(pokemon2CurrentPs+"/"+pokemon2MaxPs);
+            trainer2Text = "What will\n"+ mainGui.getNameActivePokemonTrainer2()+" do?";
+        }
     }
 
     @Override
