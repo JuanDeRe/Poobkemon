@@ -206,11 +206,8 @@ public class PokemonSelection extends JPanel {
         panelPokemonSelection1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e){
-                // Calcular celda bajo el mouse
                 int x = e.getX();
                 int y = e.getY();
-
-                // Determinar fila y columna
                 int cellHeight;
                 int row = y / (panelPokemonSelection1.getHeight()/6);
                 int col = x / (panelPokemonSelection1.getWidth()/6);
@@ -218,7 +215,7 @@ public class PokemonSelection extends JPanel {
                     selectPokemonTrainer1(row, col);
                 }
                 else {
-                    JOptionPane.showMessageDialog(panelPokemonSelection1, "you can't select more than 6 pokemon", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(panelPokemonSelection1, "you can't select more than 6 pokemon", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
@@ -469,24 +466,15 @@ public class PokemonSelection extends JPanel {
 
     private void startBattleWithSelections(List<List<Move>> movesets, Map<Item, Integer> itemsWithQty) {
         try {
-            // 1. Crear equipo Pokémon (igual que antes)...
             ArrayList<Pokemon> team = new ArrayList<>();
             for (int i = 0; i < pokemonNamesTrainer1.size(); i++) {
                 team.add(POOBkemon.createPokemon(pokemonNamesTrainer1.get(i),
                         new ArrayList<>(movesets.get(i))));
             }
-
-            // 2. Crear jugador con ítems y cantidades
             Player player = mainGui.getGame().createTrainerPlayer(
                     "Player 1", team, itemsWithQty, "Red");
-
-            // 3. Crear IA
             Machine ai = mainGui.getGame().createTrainerMachine("expert");
-
-            // 4. Iniciar batalla lógica
             mainGui.getGame().startOnePlayerBattle(player, ai);
-
-            // 5. Mostrar panel vacío de Battlefield
             Battlefield bfPanel = new Battlefield(this.width,this.height,(byte)1, mainGui);
             mainGui.setPanelBattlefield(bfPanel);
             mainGui.showPanel(bfPanel);
@@ -501,7 +489,7 @@ public class PokemonSelection extends JPanel {
 
 
     private void loadImages(int cellWidth, int cellHeight){
-        for (int i = 1; i <= 2; i++) { // Cargar solo 2 imágenes
+        for (int i = 1; i <= 2; i++) {
             BufferedImage image = ImageLoader.loadImage("resources/Images/Icons/" + i + ".png", cellWidth, cellHeight);
             if (image != null) {
                 images.add(image);

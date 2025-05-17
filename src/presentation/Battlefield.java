@@ -259,46 +259,7 @@ public class Battlefield extends JPanel {
     }
 
     private void prepareElementsAiVsAi() {
-        JLabel label;
-        actionSelector = makePanelWithBackground(actionsBackgroundImage);
-        actionSelector.setLayout(new GridLayout(2,2));
-        actionSelector.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        actionSelector.setBorder(BorderFactory.createEmptyBorder(notificationHeight/7,this.width/34,notificationHeight/7,this.width/34));
-        fight = makeTransparentPanel();
-        fight.setLayout(new BorderLayout());
-        label = new JLabel("FIGHT", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        fight.add(label,BorderLayout.CENTER);
-        bag = makeTransparentPanel();
-        bag.setLayout(new BorderLayout());
-        label = new JLabel("BAG", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        bag.add(label,BorderLayout.CENTER);
-        pokemon = makeTransparentPanel();
-        pokemon.setLayout(new BorderLayout());
-        label = new JLabel("POKEMON", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        pokemon.add(label,BorderLayout.CENTER);
-        label = new JLabel("RUN", SwingConstants.CENTER);
-        label.setFont(font.deriveFont(50f*resolutionMultiplier));
-        actionSelector.add(fight,0);
-        actionSelector.add(bag,1);
-        actionSelector.add(pokemon,2);
-        actionSelector.add(label,3);
-
-        actionsAndNotificationPanel.add(actionSelector, BorderLayout.EAST);
-
-        trainerText = new JTextArea("What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?");
-        trainerText.setPreferredSize(new Dimension(this.width/2, notificationHeight));
-        trainerText.setFont(font.deriveFont(70f*resolutionMultiplier));
-        trainerText.setForeground(Color.WHITE);
-        trainerText.setOpaque(false);
-        trainerText.setEditable(false);
-        trainerText.setFocusable(false);
-        trainerText.setLineWrap(true);
-        trainerText.setWrapStyleWord(true);
-        trainerText.setBorder(BorderFactory.createEmptyBorder(notificationHeight/10,this.width/25,0,0));
-        actionsAndNotificationPanel.add(trainerText, BorderLayout.WEST);
+        prepareNotifications();
     }
 
     private JPanel prepareAttacksPanel(){
@@ -476,13 +437,22 @@ public class Battlefield extends JPanel {
                             switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, false, true, -1,true);
                             mainGui.showPanel(switchPokemonPanel);
                         }
+                        else if (actualPs1 == 0 && gameMode == 0){
+                            changeActivePokemon(true);
+                        }
+                        else if (actualPs2 == 0 && (gameMode == 0 || gameMode == 1)){
+                            changeActivePokemon(false);
+                        }
                         else{
-                            updateBarsIfLess(actualPs1, actualPs2);
-                            updateBarsIfGreater(actualPs1, actualPs2);
-                            notificationsTextArea.setVisible(false);
-                            actionSelector.setVisible(true);
-                            trainerText.setVisible(true);
-                            mainGui.showPanel(mainGui.getPanelBattlefield());
+                            if(gameMode == 1 || gameMode == 2){
+                                notificationsTextArea.setVisible(false);
+                                actionSelector.setVisible(true);
+                                trainerText.setVisible(true);
+                                mainGui.showPanel(mainGui.getPanelBattlefield());
+                            }
+                            else{
+                                prepareNotifications();
+                            }
                         }
                     }
                     else{
@@ -978,6 +948,16 @@ public class Battlefield extends JPanel {
             pokemon2Life.setText(pokemon2CurrentPs+"/"+pokemon2MaxPs);
             trainer2Text = "What will\n"+ mainGui.getNameActivePokemonTrainer2()+" do?";
         }
+    }
+
+    protected void changeActivePokemon(boolean trainer1){
+        if(trainer1){
+            mainGui.getAvailableActionsTrainer1().get(2).get(0).execute(mainGui.getBattlefieldGame());
+        }
+        else{
+            mainGui.getAvailableActionsTrainer2().get(2).get(0).execute(mainGui.getBattlefieldGame());
+        }
+        this.updatePokemon(trainer1);
     }
 
     @Override
