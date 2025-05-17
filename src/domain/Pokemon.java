@@ -381,7 +381,7 @@ public class Pokemon{
 	 * @return Valor de defensa ajustado por nivel
 	 */
 	public double getRealDefense(){
-		return this.defenseBoost * STAGE_STATS_MULTIPLIERS.get(this.defenseBoost);
+		return this.defense * STAGE_STATS_MULTIPLIERS.get(this.defenseBoost);
 	}
 	/**
 	 * Obtiene La lista de tipos del pokemon
@@ -414,7 +414,7 @@ public class Pokemon{
 	 * @return Valor de defensa especial ajustado por nivel
 	 */
 	public double getRealSpecialDefense(){
-		return this.specialDefenseBoost * STAGE_STATS_MULTIPLIERS.get(this.specialDefenseBoost);
+		return this.specialDefense * STAGE_STATS_MULTIPLIERS.get(this.specialDefenseBoost);
 	}
 	/**
 	 * Obtiene el valor real de velocidad considerando los modificadores

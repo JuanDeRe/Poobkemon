@@ -15,6 +15,9 @@ public class SuperPotion extends Potion {
      *           Hereda la funcionalidad base de Potion modificando la cantidad de PS a restaurar.
      */
     SuperPotion() {
-        super("Super Potion","A spray-type medicine that restores 50 PS to a single Pokémon.");
+        super();
+        this.ps = 50;
+        this.setName("Super Potion");
+        this.setDescription("A spray-type medicine that restores 50 PS to a single Pokémon.");
     }
 }

@@ -25,7 +25,7 @@ class POOBkemonTest {
         }};
 
         testInventory = new HashMap<>() {{
-            put(new Potion("Potion", "Restores 20 PS"), 3);
+            put(new Potion(), 3);
             put(new Revive(), 1);
         }};
     }
@@ -386,7 +386,7 @@ public void testStruggleMoveWhenPPExhausted() {
             Pokemon sceptile = POOBkemon.createPokemon("Sceptile", validMoveSet);
             sceptile.receiveDamage(100);
             int initialPS = sceptile.getPs();
-            Potion potion = new Potion("Potion", "Restores 20 PS");
+            Potion potion = new Potion();
             potion.Effect(sceptile);
 
             assertEquals(initialPS + 20, sceptile.getPs(), "La poción debe curar 20 PS");

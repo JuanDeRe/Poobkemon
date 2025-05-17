@@ -13,6 +13,9 @@ public class HyperPotion extends Potion {
      * @implNote Hereda la funcionalidad base de Potion, modificando la cantidad de PS a restaurar
      */
     public HyperPotion() {
-        super("Hyper Potion","A powerful medicine that restores 200 PS to a single Pokémon.");
+        super();
+        this.setName("Hyper Potion");
+        this.setDescription("A powerful medicine that restores 200 PS to a single Pokémon.");
+        this.ps = 200;
     }
 }

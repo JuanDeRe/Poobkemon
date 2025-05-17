@@ -13,7 +13,10 @@ public class Revive extends Item {
      * - Descripción: "A medicine that can revive a fainted Pokémon. It restores half of the Pokémon's max PS"
      */
     public Revive() {
-        super("Revive","It revives a fainted Pokémon and restores half of its maximum HP.");
+
+        super();
+        this.setName("Revive");
+        this.setDescription("It revives a fainted Pokémon and restores half of its maximum HP.");
     }
     /**
      * Intenta revivir un Pokémon desmayado y restaurar sus PS.

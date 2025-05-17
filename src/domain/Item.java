@@ -11,14 +11,8 @@ public abstract class Item {
 	private String description;
 
 	private String name;
-	/**
-	 * Construye un ítem con propiedades básicas.
-	 * @param itemName Nombre identificativo del ítem (ej: "Poción", "Revivir").
-	 * @param description Explicación detallada de la funcionalidad del ítem.
-	 */
-	public Item(String itemName, String description) {
-		this.name = itemName;
-		this.description = description;
+
+	public Item() {
 	}
 	/**
 	 * Constructor de copia privado para clonación interna.
@@ -36,7 +30,12 @@ public abstract class Item {
 	 *         - false: El efecto no pudo aplicarse (condiciones no cumplidas)
 	 */
 	public abstract boolean Effect(Pokemon pokemon);
-
+	protected void setName(String name) {
+		this.name = name;
+	}
+	protected void setDescription(String description) {
+		this.description = description;
+	}
 	/**
 	 * Proporciona el nombre del ítem para identificación.
 	 * @return Nombre del ítem en formato String.
