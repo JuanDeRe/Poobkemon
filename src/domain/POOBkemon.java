@@ -1,5 +1,9 @@
 package src.domain;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.*;
 /**
  * Clase principal del juego que gestiona toda la lógica del sistema POOBkemon
@@ -588,6 +592,19 @@ public class POOBkemon {
         }
         return pokemonsMaxPs;
     }
+
+    public void saveBattlefield(File file) throws PoobkemonException{
+        try{
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(battlefield);
+        } catch (IOException e){
+            throw new PoobkemonException(PoobkemonException.WRITE_ERROR);
+
+        }
+    }
+
+
 
     public BattleField getBattlefield() {
         return battlefield;
