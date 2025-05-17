@@ -260,10 +260,10 @@ public class POOBkemon {
         if (itemName.equals("Revive")){
             return new Revive();
         }
-        else if (itemName.equals("SuperPotion")){
+        else if (itemName.equals("Super Potion")){
             return new SuperPotion();
         }
-        else if (itemName.equals("HyperPotion")) {
+        else if (itemName.equals("Hyper Potion")) {
             return new HyperPotion();
         }
         else {
