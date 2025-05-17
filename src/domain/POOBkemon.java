@@ -600,6 +600,7 @@ public class POOBkemon {
             oos.writeObject(battlefield);
         } catch (IOException e){
             throw new PoobkemonException(PoobkemonException.WRITE_ERROR);
+
         }
     }
 
