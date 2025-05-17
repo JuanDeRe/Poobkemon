@@ -100,17 +100,9 @@ public class PoobkemonGUI extends JFrame{
 
     private void saveFile(){
         File file = null;
-        String extension = "";
+        String extension;
         try{
-            if (panelBattlefield.getGameMode() == 0 ){
-                extension = "0p";
-            }
-            else if(panelBattlefield.getGameMode() == 1){
-                extension = "1p";
-            }
-            else if(panelBattlefield.getGameMode() == 2){
-                extension = "2p";
-            }
+            extension = panelBattlefield.getGameMode() + "p";
             fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos "+extension, extension));
             fileChooser.setSelectedFile(new File("saveFile."+extension));
             int selection = fileChooser.showSaveDialog(this);
