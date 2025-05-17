@@ -27,33 +27,33 @@ public class PoobkemonGUI extends JFrame{
 
     private JPanel panelIntro, panelBattlefield, panelPokemonSelection, panelAbilitiesSelection,panelBattlefieldBag;
 
-        public PoobkemonGUI(String title) {
-            super(title);
-            game = new POOBkemon();
-            prepareElements();
-            prepareActions();
-        }
+    public PoobkemonGUI(String title) {
+        super(title);
+        game = new POOBkemon();
+        prepareElements();
+        prepareActions();
+    }
 
-        private void prepareElements(){
-            width  = (Toolkit.getDefaultToolkit().getScreenSize().width)/2;
-            heigth = (Toolkit.getDefaultToolkit().getScreenSize().height)/2;
-            this.setSize(width,heigth);
-            this.setResizable(false);
-            this.setLocationRelativeTo(null);
-            panelItemSelection = new ItemSelection(this);
-            this.panelIntro = new IntroInterface(this.width,this.heigth, this);
-            this.add(panelIntro);
-        }
+    private void prepareElements(){
+        width  = (Toolkit.getDefaultToolkit().getScreenSize().width)/2;
+        heigth = (Toolkit.getDefaultToolkit().getScreenSize().height)/2;
+        this.setSize(width,heigth);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        panelItemSelection = new ItemSelection(this);
+        this.panelIntro = new IntroInterface(this.width,this.heigth, this);
+        this.add(panelIntro);
+    }
 
-        private void prepareActions(){
-            this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            this.addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowClosing(WindowEvent e) {
-                    exit();
-                }
-            });
-        }
+    private void prepareActions(){
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                exit();
+            }
+        });
+    }
 
     /**
      * Muestra un cuadro de diálogo de confirmación y cierra la aplicación si el usuario acepta.

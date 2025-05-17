@@ -429,6 +429,7 @@ public class Battlefield extends JPanel {
                     showingNotifications = false;
                     notificationsTextArea.setVisible(false);
                     if(!mainGui.isOver()){
+
                         if (actualPs1 == 0 && (gameMode == 1 || gameMode == 2)){
                             switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, true, true, -1,true);
                             mainGui.showPanel(switchPokemonPanel);
@@ -437,13 +438,13 @@ public class Battlefield extends JPanel {
                             switchPokemonPanel = new PokemonUseSelection(width, height, mainGui, false, true, -1,true);
                             mainGui.showPanel(switchPokemonPanel);
                         }
-                        else if (actualPs1 == 0 && gameMode == 0){
-                            changeActivePokemon(true);
-                        }
-                        else if (actualPs2 == 0 && (gameMode == 0 || gameMode == 1)){
-                            changeActivePokemon(false);
-                        }
                         else{
+                            if (actualPs1 == 0 && gameMode == 0){
+                                changeActivePokemon(true);
+                            }
+                            else if (actualPs2 == 0 && (gameMode == 0 || gameMode == 1)){
+                                changeActivePokemon(false);
+                            }
                             if(gameMode == 1 || gameMode == 2){
                                 notificationsTextArea.setVisible(false);
                                 actionSelector.setVisible(true);
@@ -453,6 +454,7 @@ public class Battlefield extends JPanel {
                             else{
                                 prepareNotifications();
                             }
+                            trainerText.setText(trainer1Text);
                         }
                     }
                     else{
@@ -490,6 +492,10 @@ public class Battlefield extends JPanel {
                     }
                     else if (currentNotification instanceof PsNotification || currentNotification instanceof ItemNotification) {
                         updateBarsIfGreater(actualPs1, actualPs2);
+                    }
+                    else if (currentNotification instanceof SwitchNotification){
+                        updatePokemon(true);
+                        updatePokemon(false);
                     }
 
                     currentMessageIndex++;
@@ -924,40 +930,52 @@ public class Battlefield extends JPanel {
     }
 
     public void updatePokemon(boolean trainer1){
+        int pokemon1CurrentPs = mainGui.getPsPokemonTrainer1();
+        int pokemon2CurrentPs = mainGui.getPsPokemonTrainer2();
         if(trainer1){
             int pokemon1MaxPs = mainGui.getMaxPsPokemonTrainer1();
-            int pokemon1CurrentPs = mainGui.getPsPokemonTrainer1();
             String pokemonName = mainGui.getNameActivePokemonTrainer1();
             pokemon1Image = ImageLoader.loadImage("resources/Images/BackSprite/"+pokemonName+".png", this.width/3, (this.height-notificationHeight)/2);
             pokemon1Label.setIcon(new ImageIcon(pokemon1Image));
             psBar1.setMaximum(pokemon1MaxPs);
-            psBar1.setValue(pokemon1CurrentPs);
             pokemon1Name.setText(pokemonName);
             pokemon1Life.setText(pokemon1CurrentPs+"/"+pokemon1MaxPs);
             trainer1Text  = "What will\n"+ mainGui.getNameActivePokemonTrainer1()+" do?";
         }
         else{
             int pokemon2MaxPs = mainGui.getMaxPsPokemonTrainer2();
-            int pokemon2CurrentPs = mainGui.getPsPokemonTrainer2();
             String pokemonName = mainGui.getNameActivePokemonTrainer2();
             pokemon2Image = ImageLoader.loadImage("resources/Gifs/Pokemons/"+pokemonName+".gif", (this.width/3), (this.height-notificationHeight)/2);
             pokemon2Label.setIcon(new ImageIcon(pokemon2Image));
             psBar2.setMaximum(pokemon2MaxPs);
-            psBar2.setValue(pokemon2CurrentPs);
             pokemon2Name.setText(pokemonName);
             pokemon2Life.setText(pokemon2CurrentPs+"/"+pokemon2MaxPs);
             trainer2Text = "What will\n"+ mainGui.getNameActivePokemonTrainer2()+" do?";
         }
+        updateBarsIfGreater(pokemon1CurrentPs, pokemon2CurrentPs);
+        updateBarsIfLess(pokemon1CurrentPs, pokemon2CurrentPs);
     }
 
     protected void changeActivePokemon(boolean trainer1){
+        List<Integer> psNonActivePokemons = mainGui.getPokemonsPs(trainer1);
         if(trainer1){
-            mainGui.getAvailableActionsTrainer1().get(2).get(0).execute(mainGui.getBattlefieldGame());
+            for(Integer ps : psNonActivePokemons){
+                if(ps > 0){
+                    mainGui.getAvailableActionsTrainer1().get(2).get(psNonActivePokemons.indexOf(ps)).execute(mainGui.getBattlefieldGame());
+                    this.updatePokemon(trainer1);
+                    return;
+                }
+            }
         }
         else{
-            mainGui.getAvailableActionsTrainer2().get(2).get(0).execute(mainGui.getBattlefieldGame());
+            for(Integer ps : psNonActivePokemons){
+                if(ps > 0){
+                    mainGui.getAvailableActionsTrainer2().get(2).get(psNonActivePokemons.indexOf(ps)).execute(mainGui.getBattlefieldGame());
+                    this.updatePokemon(trainer1);
+                    return;
+                }
+            }
         }
-        this.updatePokemon(trainer1);
     }
 
     @Override
@@ -973,3 +991,4 @@ public class Battlefield extends JPanel {
         }
     }
 }
+
