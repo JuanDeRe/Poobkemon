@@ -69,7 +69,7 @@ public class BattleField {
 						Comparator.comparingInt(Action::getPriority).reversed()
 								.thenComparing(Comparator.comparingInt(Action::getSpeed).reversed())
 				).toList();
-
+		notifications.clear();
 		for (Action action : orden) {
 			action.execute(this);
 		}
@@ -78,7 +78,6 @@ public class BattleField {
 		//advanceMultiTurnPhase();    // pasa de fase carga → ataque para movimientos multi-turno
 		decrementWeather();         // reduce contador de clima y limpia si llega a 0
 		List<Notification> log = new ArrayList<>(notifications);
-		notifications.clear();
 		return log;
 	}
 
@@ -176,7 +175,7 @@ public class BattleField {
 		else {
 			return this.activePokemon1;
 		}
-    }
+	}
 	/**
 	 * Actualiza las referencias de los Pokémon activos
 	 */

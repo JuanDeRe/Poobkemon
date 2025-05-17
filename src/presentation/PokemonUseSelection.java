@@ -75,7 +75,7 @@ public class PokemonUseSelection extends JPanel{
             pokemonLevel = new JLabel("Lv100 ", SwingConstants.CENTER);
             pokemonLevel.setForeground(Color.WHITE);
             pokemonLevel.setFont(font.deriveFont(45f*resolutionMultiplier));
-            pokemonPs = new JLabel(nonActivePokemonsPs.get(nonActivePokemonsNames.indexOf(name)).toString()+"/"+nonActivePokemonsMaxPs.get(nonActivePokemonsNames.indexOf(name)).toString(), SwingConstants.RIGHT);
+            pokemonPs = new JLabel(nonActivePokemonsPs.get(counterPokemons-1).toString()+"/"+nonActivePokemonsMaxPs.get(counterPokemons-1).toString(), SwingConstants.RIGHT);
             pokemonPs.setForeground(Color.WHITE);
             pokemonPs.setFont(font.deriveFont(45f*resolutionMultiplier));
             pokemonIcon = new JLabel();
@@ -143,6 +143,7 @@ public class PokemonUseSelection extends JPanel{
     private void prepareActions(){
 
         for (JPanel panel : nonActivePokemonsPanels){
+            System.out.println("nonActivePokemonsPs: "+nonActivePokemonsPs+" nonActivePokemonsPs.indexOf(nonActivePokemonsPanels.indexOf(panel)): "+nonActivePokemonsPs.indexOf(nonActivePokemonsPanels.indexOf(panel)));
             panel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
@@ -155,8 +156,8 @@ public class PokemonUseSelection extends JPanel{
 
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    mainGUI.showPanel(mainGUI.getPanelBattlefield());
-                    if(toSwitch && !pokemonDied){
+                    if(toSwitch && !pokemonDied && nonActivePokemonsPs.get(nonActivePokemonsPanels.indexOf(panel)) != 0){
+                        mainGUI.showPanel(mainGUI.getPanelBattlefield());
                         if( battlefieldPanel.getGameMode() == 2){
                             battlefieldPanel.changeTurn();
                             if(trainer1){
@@ -186,7 +187,8 @@ public class PokemonUseSelection extends JPanel{
                             battlefieldPanel.prepareNotifications();
                         }
                     }
-                    else if (toSwitch && pokemonDied) {
+                    else if (toSwitch && pokemonDied && nonActivePokemonsPs.get(nonActivePokemonsPanels.indexOf(panel)) != 0) {
+                        mainGUI.showPanel(mainGUI.getPanelBattlefield());
                         if( battlefieldPanel.getGameMode() == 2){
                             if(trainer1){
                                 mainGUI.getAvailableActionsTrainer1().get(2).get(nonActivePokemonsPanels.indexOf(panel)).execute(mainGUI.getBattlefieldGame());
@@ -206,10 +208,12 @@ public class PokemonUseSelection extends JPanel{
                         battlefieldPanel.updateBarsIfLess(actualPs1, actualPs2);
                         battlefieldPanel.updateBarsIfGreater(actualPs1, actualPs2);
                         battlefieldPanel.getActionSelector().setVisible(true);
+                        battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer1Text());
                         battlefieldPanel.getTrainerText().setVisible(true);
                         mainGUI.showPanel(mainGUI.getPanelBattlefield());
                     }
                     else if (!toSwitch){
+                        mainGUI.showPanel(mainGUI.getPanelBattlefield());
                         if( battlefieldPanel.getGameMode() == 2){
                             battlefieldPanel.changeTurn();
                             trainer1 = !trainer1;
