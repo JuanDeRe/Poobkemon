@@ -321,6 +321,69 @@ public class POOBkemon {
         this.battlefield = new BattleField(machine1, machine2);
     }
     /**
+     * Inicia una batalla entre dos entrenadores humanos sin items y equipos al azar
+     */
+    public void startSurvival() {
+        Player p1 = createSurvivalPlayer("Ash","red");
+        Player p2 = createSurvivalPlayer("Gary","blue");
+        this.battlefield = new BattleField(p1, p2);
+    }
+
+    private Player createSurvivalPlayer(String name, String color) {
+        return createTrainerPlayer(name, createRandomTeam(), new HashMap<>() ,color);
+    }
+
+    private ArrayList<Pokemon> createRandomTeam() {
+        Random rng = new Random();
+        ArrayList<Pokemon> team = new ArrayList<>();
+        List<String> pokemonNames = new ArrayList<>(pokemons.keySet());
+        Collections.shuffle(pokemonNames);
+        List<Move> allMoves = new ArrayList<>(movements.values());
+        Collections.shuffle(allMoves);
+        for (String name : pokemonNames.subList(0, Math.min(6, pokemonNames.size()))) {
+            addPokemonWithThemedMoves(team, name, allMoves);
+        }
+        while (team.size() < 6) {
+            String randomName = pokemonNames.get(rng.nextInt(pokemonNames.size()));
+            addPokemonWithThemedMoves(team, randomName, allMoves);
+        }
+        return team;
+    }
+
+    private void addPokemonWithThemedMoves(ArrayList<Pokemon> team, String name, List<Move> shuffledMoves) {
+        try {
+            Pokemon base = pokemons.get(name);
+            List<String> types = base.getTypes();
+            List<Move> typeMoves = new ArrayList<>();
+            List<Move> otherMoves = new ArrayList<>();
+
+            for (Move move : shuffledMoves) {
+                if (types.contains(move.getType())) {
+                    typeMoves.add(move);
+                } else {
+                    otherMoves.add(move);
+                }
+            }
+            List<Move> possibleMoves = new ArrayList<>();
+            possibleMoves.addAll(typeMoves);
+            possibleMoves.addAll(otherMoves);
+            ArrayList<Move> moveSet = new ArrayList<>();
+            Set<String> uniqueNames = new HashSet<>();
+            for (Move move : possibleMoves) {
+                if (uniqueNames.add(move.getName())) {
+                    moveSet.add(POOBkemon.createMove(move.getName()));
+                    if (moveSet.size() == 4) break;
+                }
+            }
+            team.add(POOBkemon.createPokemon(name, moveSet));
+        } catch (PoobkemonException e) {
+            Logger.logException(e);
+        }
+
+    }
+
+
+    /**
      * Ejecuta un turno de combate con acciones de dos jugadores humanos
      * @param humanAction1 Acción del primer jugador
      * @param humanAction2 Acción del segundo jugador
