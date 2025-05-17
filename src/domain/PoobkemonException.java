@@ -11,6 +11,10 @@ public class PoobkemonException extends RuntimeException {
     public static final String NO_MOVES_SELECTED = "No moves selected";
     public static final String NO_MORE_THAN_4_MOVES = "No more than 4 moves";
     public static final String NO_MORE_THAN_2_POTIONS_OF_THIS_TYPE = "No more than 2 potion of this type";
+    public static final String WRITE_ERROR = "Error writing archive";
+    public static final String READ_ERROR = "Error reading archive";
+    public static final String FILE_NOT_FOUND = "File not found";
+    public static final String CORRUPT_FILE = "File is corrupted";
 
     /**
      * Construye una excepción con un mensaje específico
