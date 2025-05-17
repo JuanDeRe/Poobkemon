@@ -206,7 +206,7 @@ public class IntroInterface extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                mainGUI.startSurvival();
             }
         });
 

@@ -361,6 +361,12 @@ public class PoobkemonGUI extends JFrame{
         this.action2 = action2;
     }
 
+    public void startSurvival(){
+        this.game.startSurvival();
+        panelBattlefield = new Battlefield(this.width, this.heigth, (byte)2, this);
+        this.showPanel(panelBattlefield);
+    }
+
     public boolean isOver() {
         return game.isOver();
     }
