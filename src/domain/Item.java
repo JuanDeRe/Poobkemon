@@ -1,4 +1,7 @@
 package src.domain;
+
+import java.io.Serializable;
+
 /**
  * Clase abstracta que representa un ítem genérico con capacidad de afectar a un Pokémon.
  * Define la estructura base para todos los ítems del juego, requiriendo que las subclases
@@ -6,7 +9,7 @@ package src.domain;
  * @author Palacios-Roa
  * @version 1.0
  */
-public abstract class Item {
+public abstract class Item implements Serializable {
 
 	private String description;
 

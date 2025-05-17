@@ -1,11 +1,14 @@
 package src.domain;
+
+import java.io.Serializable;
+
 /**
  * Concrete action representing a Pokémon switch during battle.
  * Handles the logistics of changing the active Pokémon and updating battle state.
  * @author Palacios-Roa
  * @version 1.0
  */
-public class SwitchAction implements Action {
+public class SwitchAction implements Action, Serializable {
 
 	private int teamMember;
 

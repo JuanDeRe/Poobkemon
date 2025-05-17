@@ -1,5 +1,6 @@
 package src.domain;
 
+import java.io.Serializable;
 import java.util.List;
 /**
  * Clase base abstracta para representar notificaciones generadas durante los combates.
@@ -7,7 +8,7 @@ import java.util.List;
  * @author Palacios-Roa
  * @version 1.0
  */
-public abstract class Notification {
+public abstract class Notification implements Serializable {
 	/**
 	 * Obtiene el contenido de la notificación formateado para visualización
 	 * @return Lista de cadenas donde cada elemento representa una línea del mensaje

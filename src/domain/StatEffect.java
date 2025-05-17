@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  * Efecto que modifica una estadística específica de un Pokémon durante el combate con cierta probabilidad.
@@ -8,7 +9,7 @@ import java.util.Random;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class StatEffect implements Effect {
+public class StatEffect implements Effect, Serializable {
 
 	private String stat;
 

@@ -1,4 +1,7 @@
 package src.domain;
+
+import java.io.Serializable;
+
 /**
  * Representa una acción de uso de movimiento durante un combate Pokémon.
  * Implementa la lógica de ejecución, prioridad y velocidad para el sistema de turnos.
@@ -6,7 +9,7 @@ package src.domain;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class MoveAction implements Action {
+public class MoveAction implements Action, Serializable {
 
 	private Trainer trainer;
 

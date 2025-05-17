@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Random;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class Pokemon{
+public class Pokemon implements Serializable {
 
 	private List<String> types;
 

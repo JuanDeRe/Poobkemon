@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -10,7 +11,7 @@ import java.util.Random;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class Move {
+public class Move implements Serializable {
 
 	private String name;
 

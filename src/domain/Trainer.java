@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Map;
  * @author Palacios-Roa
  * @version 1.0
  */
-public abstract class  Trainer {
+public abstract class  Trainer implements Serializable {
 
     private String name;
 

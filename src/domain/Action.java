@@ -4,7 +4,7 @@ package src.domain;
  * @author Palacios-Roa
  * @version 1.0
  */
-public interface Action {
+public interface Action{
 	/**
 	 * Obtiene la prioridad de ejecución de la acción. Valores más altos indican mayor prioridad
 	 * @return Entero que representa la prioridad de la acción (mayor valor = se ejecuta primero)

@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  * Efecto que modifica las condiciones climáticas del campo de batalla con cierta probabilidad.
@@ -8,7 +9,7 @@ import java.util.Random;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class WeatherEffect implements Effect {
+public class WeatherEffect implements Effect, Serializable {
 
 	private String weather;
 

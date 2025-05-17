@@ -1,11 +1,14 @@
 package src.domain;
+
+import java.io.Serializable;
+
 /**
  * Acción concreta que representa el uso de un ítem por un entrenador durante un combate.
  * Coordina la ejecución del efecto del ítem, el consumo del mismo y la notificación del evento.
  * @author Palacios-Roa
  * @version 1.0
  */
-public class ItemAction implements Action {
+public class ItemAction implements Action, Serializable {
 
 	private Pokemon pokemon;
 	private Item item;

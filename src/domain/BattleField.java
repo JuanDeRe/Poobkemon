@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class BattleField {
+public class BattleField implements Serializable {
 
 	private boolean turn; // true = trainer2, false = trainer1
 

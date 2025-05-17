@@ -1,9 +1,6 @@
 package src.domain;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.*;
 /**
  * Clase principal del juego que gestiona toda la lógica del sistema POOBkemon
@@ -600,10 +597,22 @@ public class POOBkemon {
             oos.writeObject(battlefield);
         } catch (IOException e){
             throw new PoobkemonException(PoobkemonException.WRITE_ERROR);
-
         }
     }
 
+    public void openBattlefield(File file) throws PoobkemonException{
+        try{
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            this.battlefield = (BattleField) ois.readObject();
+        }catch (FileNotFoundException e) {
+            throw new PoobkemonException(PoobkemonException.FILE_NOT_FOUND);
+        } catch (IOException e) {
+            throw new PoobkemonException(PoobkemonException.READ_ERROR);
+        } catch (ClassNotFoundException e) {
+            throw new PoobkemonException(PoobkemonException.CORRUPT_FILE);
+        }
+    }
 
 
     public BattleField getBattlefield() {

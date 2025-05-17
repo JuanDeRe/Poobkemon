@@ -1,4 +1,7 @@
 package src.domain;
-public class Ability {
+
+import java.io.Serializable;
+
+public class Ability implements Serializable {
 
 }

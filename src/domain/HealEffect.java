@@ -1,5 +1,6 @@
 package src.domain;
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  * Efecto que cura los PS de un Pokémon con una probabilidad determinada.
@@ -8,7 +9,7 @@ import java.util.Random;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class HealEffect implements Effect {
+public class HealEffect implements Effect, Serializable {
 
 	private int ps;
 

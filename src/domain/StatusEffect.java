@@ -1,6 +1,7 @@
 package src.domain;
 
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  * Efecto que aplica un estado alterado a un Pokémon con cierta probabilidad.
@@ -9,7 +10,7 @@ import java.util.Random;
  * @author Palacios-Roa
  * @version 1.0
  */
-public class StatusEffect implements Effect{
+public class StatusEffect implements Effect, Serializable {
 
 	private String status;
 
