@@ -412,6 +412,12 @@ public class PokemonSelection extends JPanel {
         else if (row == 0 && col ==1) {
             pokemonNamesTrainer1.add("Sceptile");
         }
+        else if (row == 0 && col == 2) {
+            pokemonNamesTrainer1.add("Raichu");
+        }
+        else if (row == 0 && col == 3) {
+            pokemonNamesTrainer1.add("Sandslash");
+        }
     }
 
     private void selectPokemonTrainer2(int row, int col){
@@ -420,6 +426,12 @@ public class PokemonSelection extends JPanel {
         }
         else if (row == 0 && col ==1) {
             pokemonNamesTrainer2.add("Sceptile");
+        }
+        else if (row == 0 && col == 2) {
+            pokemonNamesTrainer1.add("Raichu");
+        }
+        else if (row == 0 && col == 3) {
+            pokemonNamesTrainer1.add("Sandslash");
         }
     }
     private void startBattleTwoPlayers() {
@@ -489,7 +501,7 @@ public class PokemonSelection extends JPanel {
 
 
     private void loadImages(int cellWidth, int cellHeight){
-        for (int i = 1; i <= 2; i++) {
+        for (int i = 1; i <= 4; i++) {
             BufferedImage image = ImageLoader.loadImage("resources/Images/Icons/" + i + ".png", cellWidth, cellHeight);
             if (image != null) {
                 images.add(image);
