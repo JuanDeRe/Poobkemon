@@ -4,12 +4,12 @@ import src.domain.*;
 import src.domain.Action;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +23,19 @@ public class PoobkemonGUI extends JFrame{
 
     protected static Font pokemonFont;
 
+    private JMenuBar menuBar;
+
+    private JMenu menu;
+
+    private JMenuItem openItem, saveItem;
+
     private JPanel panelItemSelection;
 
-    private JPanel panelIntro, panelBattlefield, panelPokemonSelection, panelAbilitiesSelection,panelBattlefieldBag;
+    private JPanel panelIntro, panelPokemonSelection, panelAbilitiesSelection,panelBattlefieldBag;
+
+    private Battlefield panelBattlefield;
+
+    private JFileChooser fileChooser = new JFileChooser();
 
     public PoobkemonGUI(String title) {
         super(title);
@@ -42,7 +52,12 @@ public class PoobkemonGUI extends JFrame{
         this.setLocationRelativeTo(null);
         panelItemSelection = new ItemSelection(this);
         this.panelIntro = new IntroInterface(this.width,this.heigth, this);
-        this.add(panelIntro);
+        this.menuBar = new JMenuBar();
+        this.menu = new JMenu("File");
+        this.menuBar.add(menu);
+        this.openItem = new JMenuItem("Open");
+        this.saveItem = new JMenuItem("Save");
+        this.showPanel(panelIntro);
     }
 
     private void prepareActions(){
@@ -53,6 +68,67 @@ public class PoobkemonGUI extends JFrame{
                 exit();
             }
         });
+        this.saveItem.addActionListener(e -> saveFile());
+        this.openItem.addActionListener(e -> openFile());
+    }
+
+    private void openFile() {
+        File file = null;
+        try{
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos (*.0p, *.1p, *.2p)", "0p", "1p", "2p");
+            fileChooser.setFileFilter(filter);
+            int selection = fileChooser.showOpenDialog(this);
+            if(selection == JFileChooser.APPROVE_OPTION){
+                file = fileChooser.getSelectedFile();
+                this.game.openBattlefield(file);
+                if(file.getName().toLowerCase().endsWith("0p")){
+                    panelBattlefield = new Battlefield(this.width, this.heigth, (byte)0, this);
+                }
+                else if(file.getName().toLowerCase().endsWith("1p")){
+                    panelBattlefield = new Battlefield(this.width, this.heigth, (byte)1, this);
+                }
+                else if(file.getName().toLowerCase().endsWith("2p")){
+                    panelBattlefield = new Battlefield(this.width, this.heigth, (byte)2, this);
+                }
+                showPanel(panelBattlefield);
+            }
+        }
+        catch (PoobkemonException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+
+    private void saveFile(){
+        File file = null;
+        String extension = "";
+        try{
+            if (panelBattlefield.getGameMode() == 0 ){
+                extension = "0p";
+            }
+            else if(panelBattlefield.getGameMode() == 1){
+                extension = "1p";
+            }
+            else if(panelBattlefield.getGameMode() == 2){
+                extension = "2p";
+            }
+            fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos "+extension, extension));
+            fileChooser.setSelectedFile(new File("saveFile."+extension));
+            int selection = fileChooser.showSaveDialog(this);
+            if(selection == JFileChooser.APPROVE_OPTION){
+                file = fileChooser.getSelectedFile();
+                String name = file.getName();
+                if (!name.toLowerCase().endsWith("."+extension)) {
+                    file = new File(
+                            file.getParentFile(),
+                            name + "."+extension
+                    );
+                }
+                this.game.saveBattlefield(file);
+            }
+        }
+        catch (PoobkemonException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }
 
     /**
@@ -76,9 +152,24 @@ public class PoobkemonGUI extends JFrame{
 
     public void showPanel(JPanel panel) {
         getContentPane().removeAll();
-        add(panel);
-        revalidate();
-        repaint();
+        if(panel instanceof IntroInterface) {
+            menu.removeAll();
+            menu.add(openItem);
+            this.setJMenuBar(menuBar);
+        }
+        else if(panel instanceof Battlefield) {
+            menu.removeAll();
+            menu.add(saveItem);
+            this.setJMenuBar(menuBar);
+        }
+        else {
+            this.setJMenuBar(null);
+            menu.removeAll();
+            this.remove(menuBar);
+        }
+        this.add(panel);
+        this.revalidate();
+        this.repaint();
     }
 
     public JPanel getPanelIntro() {
@@ -101,7 +192,7 @@ public class PoobkemonGUI extends JFrame{
         return panelBattlefield;
     }
 
-    public void setPanelBattlefield(JPanel panelBattlefield) {
+    public void setPanelBattlefield(Battlefield panelBattlefield) {
         this.panelBattlefield = panelBattlefield;
     }
 
@@ -189,10 +280,6 @@ public class PoobkemonGUI extends JFrame{
         }
         PoobkemonGUI maxwellGUI = new PoobkemonGUI("Pokemon Emerald");
         maxwellGUI.setVisible(true);
-    }
-
-    public void startBattle() {
-
     }
 
     public void createAiVsAiBattlefield(){

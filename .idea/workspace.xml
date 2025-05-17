@@ -4,7 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Move.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/MoveAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/MoveAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Pokemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Pokemon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Trainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/TypesTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/TypesTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/IntroInterface$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/IntroInterface$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonSelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PokemonSelection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PoobkemonGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PoobkemonGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PoobkemonGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/PoobkemonGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/TypesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/TypesTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Battlefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/Battlefield.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/PokemonUseSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/PokemonUseSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/PoobkemonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/PoobkemonGUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +58,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;JuanDeRe&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Komi-yes"
   }
-}</component>
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/JuanDeRe/Poobkemon.git&quot;,
@@ -43,7 +74,6 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2wVOoLMvoURDGLSQDDi4Mqv5UOy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -282,7 +312,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/presentation/Battlefield.java</url>
-          <line>119</line>
+          <line>117</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <breakpoint type="java-exception">

@@ -201,13 +201,6 @@ public class TypesTable {
 		double mod2 = mod1 * eff;
 		double rndFactor = rand.nextInt(85, 101) / 100.0;
 		double damage = Math.floor(mod2 * rndFactor);
-		System.out.println("base1: " + base1);
-		System.out.println("base2: " + base2);
-		System.out.println("baseFinal: " + baseFinal);
-		System.out.println("mod1: " + mod1);
-		System.out.println("mod2: " + mod2);
-		System.out.println("rndFactor: " + rndFactor);
-		System.out.println("damage: " + damage);
 		return (int) damage;
 	}
 	/**

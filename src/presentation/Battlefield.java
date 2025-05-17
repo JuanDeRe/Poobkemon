@@ -27,7 +27,7 @@ public class Battlefield extends JPanel {
 
     private JTextArea trainerText;
 
-    int width, height, notificationHeight;
+    private int width, height, notificationHeight;
 
     private byte gameMode; // 0 = AiVsAi, 1 = HumanVsAi, 2, HumanVsHuman
 
@@ -40,8 +40,6 @@ public class Battlefield extends JPanel {
     private List<String> moveNames, moveTypes;
 
     private List<Integer>  ppMoves, ppMaxMoves;
-
-//    private Action action1, action2;
 
     private List<Notification> turnNotifications;
 
@@ -450,11 +448,11 @@ public class Battlefield extends JPanel {
                                 actionSelector.setVisible(true);
                                 trainerText.setVisible(true);
                                 mainGui.showPanel(mainGui.getPanelBattlefield());
+                                trainerText.setText(trainer1Text);
                             }
                             else{
                                 prepareNotifications();
                             }
-                            trainerText.setText(trainer1Text);
                         }
                     }
                     else{

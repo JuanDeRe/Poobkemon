@@ -143,7 +143,6 @@ public class PokemonUseSelection extends JPanel{
     private void prepareActions(){
 
         for (JPanel panel : nonActivePokemonsPanels){
-            System.out.println("nonActivePokemonsPs: "+nonActivePokemonsPs+" nonActivePokemonsPs.indexOf(nonActivePokemonsPanels.indexOf(panel)): "+nonActivePokemonsPs.indexOf(nonActivePokemonsPanels.indexOf(panel)));
             panel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
