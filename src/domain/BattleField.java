@@ -147,8 +147,9 @@ public class BattleField {
 			}
 		}
 		if (over){
-			return over = true;
+			return over;
 		}
+		over = true;
 		for(Pokemon p: trainer2.getTeam()){
 			if(p.isAlive()){
 				over = false;

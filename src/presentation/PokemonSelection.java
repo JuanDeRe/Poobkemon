@@ -69,7 +69,6 @@ public class PokemonSelection extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Actualizar dimensiones de celdas cuando cambia el tamaño
                 int cellWidth = getWidth() / 6;
                 int cellHeight = getHeight() / 6;
 

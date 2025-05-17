@@ -43,3 +43,8 @@
 [2025-05-16T20:21:11.245330100] PoobkemonException: No more than 4 moves
 [2025-05-16T20:21:11.318334900] PoobkemonException: Invalid name
 [2025-05-16T20:21:11.323334700] PoobkemonException: Invalid name
+[2025-05-16T20:22:41.624177400] PoobkemonException: Tipo de máquina inválido: invalid_type
+[2025-05-16T20:22:41.648175] PoobkemonException: No pokemon selected
+[2025-05-16T20:22:41.703179600] PoobkemonException: No more than 4 moves
+[2025-05-16T20:22:41.764184800] PoobkemonException: Invalid name
+[2025-05-16T20:22:41.769183800] PoobkemonException: Invalid name
