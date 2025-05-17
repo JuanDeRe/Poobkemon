@@ -49,9 +49,11 @@ public class MoveAction implements Action {
 	 */
 	@Override
 	public void execute(BattleField field) {
-		Pokemon target = field.getOpponent(this.pokemon);
-		this.pokemon.getMoves().get(this.move).execute(field,this.pokemon,target);
-		this.trainer.makeMove(this.pokemon, this.move);
+		if (this.pokemon.isAlive()){
+			Pokemon target = field.getOpponent(this.pokemon);
+			this.pokemon.getMoves().get(this.move).execute(field,this.pokemon,target);
+			this.trainer.makeMove(this.pokemon, this.move);
+		}
 	}
 	/**
 	 * Obtiene el movimiento asociado a esta acción
