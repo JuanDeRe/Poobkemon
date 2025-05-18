@@ -788,7 +788,6 @@ public class POOBkemon {
      * Verifica si la batalla actual ha terminado.
      * @return true si alguno de los entrenadores no tiene Pokémon disponibles,
      *         false si la batalla continúa
-     * @throws NullPointerException Si no hay un campo de batalla inicializado
      */
     public boolean isOver() {
         return battlefield.isOver();
