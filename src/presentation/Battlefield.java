@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Battlefield extends JPanel {
-    private JPanel actionSelector, actionSelector2, movesPanel, actionsAndNotificationPanel, pokemon, fight, bag, ppPanel, move1, move2,move3,move4, attacksPanel;
+    private JPanel actionSelector, actionSelector2, movesPanel, actionsAndNotificationPanel, pokemon, fight, bag, run,ppPanel, move1, move2,move3,move4, attacksPanel;
 
     private ItemsBattlefield itemsPanel;
 
@@ -73,7 +73,6 @@ public class Battlefield extends JPanel {
         prepareElements();
         if(gameMode == 0){
             prepareElementsAiVsAi();
-            prepareActionsAiVsAi();
         }
         else if (gameMode == 1) {
             prepareElementsHumanVsAi();
@@ -188,12 +187,15 @@ public class Battlefield extends JPanel {
         label = new JLabel("POKEMON", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
         pokemon.add(label,BorderLayout.CENTER);
+        run = makeTransparentPanel();
+        run.setLayout(new BorderLayout());
         label = new JLabel("RUN", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
+        run.add(label,BorderLayout.CENTER);
         actionSelector.add(fight,0);
         actionSelector.add(bag,1);
         actionSelector.add(pokemon,2);
-        actionSelector.add(label,3);
+        actionSelector.add(run,3);
         actionsAndNotificationPanel.add(actionSelector, BorderLayout.EAST);
 
         trainer2Text = "What will\n"+ mainGui.getNameActivePokemonTrainer2()+" do?";
@@ -234,12 +236,15 @@ public class Battlefield extends JPanel {
         label = new JLabel("POKEMON", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
         pokemon.add(label,BorderLayout.CENTER);
+        run = makeTransparentPanel();
+        run.setLayout(new BorderLayout());
         label = new JLabel("RUN", SwingConstants.CENTER);
         label.setFont(font.deriveFont(50f*resolutionMultiplier));
+        run.add(label,BorderLayout.CENTER);
         actionSelector.add(fight,0);
         actionSelector.add(bag,1);
         actionSelector.add(pokemon,2);
-        actionSelector.add(label,3);
+        actionSelector.add(run,3);
 
         actionsAndNotificationPanel.add(actionSelector, BorderLayout.EAST);
 
@@ -601,6 +606,25 @@ public class Battlefield extends JPanel {
                 mainGui.showPanel(switchPokemonPanel);
             }
         });
+        run.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                selected.setIcon(new ImageIcon(ImageLoader.loadImage("resources/Images/Selected.png", run.getWidth()/5, run.getHeight())));
+                run.add(selected,  BorderLayout.WEST);
+                selected.setVisible(true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                selected.setVisible(false);
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainGui.showPanel(mainGui.getPanelIntro());
+            }
+
+        });
     }
 
     private void prepareActionsHumanVsAi(){
@@ -664,9 +688,25 @@ public class Battlefield extends JPanel {
                 mainGui.showPanel(switchPokemonPanel);
             }
         });
-    }
+        run.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                selected.setIcon(new ImageIcon(ImageLoader.loadImage("resources/Images/Selected.png", run.getWidth()/5, run.getHeight())));
+                run.add(selected,  BorderLayout.WEST);
+                selected.setVisible(true);
+            }
 
-    private void prepareActionsAiVsAi() {
+            @Override
+            public void mouseExited(MouseEvent e) {
+                selected.setVisible(false);
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainGui.showPanel(mainGui.getPanelIntro());
+            }
+
+        });
     }
 
     private void prepareAttackActions(){

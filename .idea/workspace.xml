@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/IntroInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/IntroInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/PoobkemonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/PoobkemonGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Battlefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/Battlefield.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +268,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747521970481</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1747522430667</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747522430667</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1747522592056</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747522592056</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +316,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/presentation/Battlefield.java</url>
-          <line>117</line>
+          <line>116</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <breakpoint type="java-exception">
