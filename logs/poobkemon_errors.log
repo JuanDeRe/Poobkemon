@@ -49,3 +49,5 @@
 [2025-05-16T20:22:41.764184800] PoobkemonException: Invalid name
 [2025-05-16T20:22:41.769183800] PoobkemonException: Invalid name
 [2025-05-17T21:52:53.437368700] StreamCorruptedException: invalid stream header: ACED2005
+[2025-05-17T22:33:36.798436200] PoobkemonException: No more than 6 pokemon can be selected
+[2025-05-17T22:33:41.560752500] PoobkemonException: No more than 6 pokemon can be selected

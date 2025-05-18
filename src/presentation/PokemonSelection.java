@@ -395,10 +395,10 @@ public class PokemonSelection extends JPanel {
             pokemonNamesTrainer2.add("Sceptile");
         }
         else if (row == 0 && col == 2) {
-            pokemonNamesTrainer1.add("Raichu");
+            pokemonNamesTrainer2.add("Raichu");
         }
         else if (row == 0 && col == 3) {
-            pokemonNamesTrainer1.add("Sandslash");
+            pokemonNamesTrainer2.add("Sandslash");
         }
     }
     private void startBattleTwoPlayers() {
