@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  */
 public class AttackingTrainer extends Machine {
-    private static final List<String> SPECIES = List.of("Sceptile", "Charizard");
+    private static final List<String> SPECIES = List.of("Sceptile", "Charizard", "Raichu", "Sandslash");
     private static final Random RNG = new Random();
     private static final Set<String> BOOSTING_MOVES = Set.of("Sword Dance");
 

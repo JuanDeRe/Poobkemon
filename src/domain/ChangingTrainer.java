@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  */
 public class ChangingTrainer extends Machine {
-    private static final List<String> SPECIES = List.of("Sceptile", "Charizard");
+    private static final List<String> SPECIES = List.of("Sceptile", "Charizard", "Raichu", "Sandslash");
     private static final Random RNG = new Random();
     /**
      * Construye un entrenador con estrategia de cambios frecuentes

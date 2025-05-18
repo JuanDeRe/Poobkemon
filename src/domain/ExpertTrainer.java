@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  */
 public class ExpertTrainer extends Machine {
-    private static final List<String> SPECIES = List.of("Sceptile", "Charizard");
+    private static final List<String> SPECIES = List.of("Sceptile", "Charizard", "Raichu", "Sandslash");
     private static final Random RNG = new Random();
     private static final Set<String> BOOSTING_MOVES = Set.of(
             "Sword Dance", "Iron Defense", "Double Team"
@@ -23,7 +23,7 @@ public class ExpertTrainer extends Machine {
      * @throws PoobkemonException Si hay error al crear el equipo inicial
      */
     public ExpertTrainer(Map<Item, Integer> inventory) throws PoobkemonException {
-        super("Defensive Trainer", buildRandomTeam(), inventory, "red");
+        super("Expert Trainer", buildRandomTeam(), inventory, "red");
     }
 
     /**
