@@ -61,8 +61,6 @@ public class IntroInterface extends JPanel {
         scaledNormalImage = ImageLoader.loadImage("resources/Images/Normal.png", this.width/3, this.heigth);
         labelNormalMode = new JLabel(new ImageIcon(scaledNormalImage));
         labelNormalMode.setLayout(new BorderLayout());
-
-        // Texto encima
         JLabel textLabel = new JLabel("NORMAL MODE", SwingConstants.CENTER);
         textLabel.setFont(font.deriveFont(24f));
         textLabel.setForeground(Color.WHITE);
@@ -77,8 +75,6 @@ public class IntroInterface extends JPanel {
         scaledSurvivalImage = ImageLoader.loadImage("resources/Images/Survival.png", this.width/3, this.heigth);
         labelSurvivalMode = new JLabel(new ImageIcon(scaledSurvivalImage));
         labelSurvivalMode.setLayout(new BorderLayout());
-
-        // Texto encima
         JLabel textLabel = new JLabel("SURVIVAL MODE", SwingConstants.CENTER);
         textLabel.setFont(font.deriveFont(24f));
         textLabel.setForeground(Color.WHITE);
@@ -92,8 +88,6 @@ public class IntroInterface extends JPanel {
         scaledExitImage = ImageLoader.loadImage("resources/Images/Exit.png", this.width/3, this.heigth);
         labelExitMode = new JLabel(new ImageIcon(scaledExitImage));
         labelExitMode.setLayout(new BorderLayout());
-
-        // Texto encima
         JLabel textLabel = new JLabel("EXIT GAME", SwingConstants.CENTER);
         textLabel.setFont(font.deriveFont(24f));
         textLabel.setForeground(Color.WHITE);
@@ -159,7 +153,7 @@ public class IntroInterface extends JPanel {
                 );
                 Graphics2D g2d = darkenedImage.createGraphics();
                 g2d.drawImage(scaledNormalImage, 0, 0, null);
-                g2d.setColor(new Color(0, 0, 0, 100)); // Negro con 40% de opacidad
+                g2d.setColor(new Color(0, 0, 0, 100));
                 g2d.fillRect(0, 0, darkenedImage.getWidth(), darkenedImage.getHeight());
                 g2d.dispose();
 
@@ -168,7 +162,7 @@ public class IntroInterface extends JPanel {
 
             @Override
             public void mouseExited(MouseEvent e) {
-                labelNormalMode.setIcon(new ImageIcon(scaledNormalImage)); // Restaurar imagen original
+                labelNormalMode.setIcon(new ImageIcon(scaledNormalImage));
             }
 
             @Override
@@ -267,8 +261,7 @@ public class IntroInterface extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                mainGUI.setPanelPokemonSelection(new PokemonSelection(width, heigth, mainGUI, true));
-                mainGUI.showPanel(mainGUI.getPanelPokemonSelection());
+                mainGUI.showPanel(new IATypeSelection(width, heigth, mainGUI, false));
             }
         });
 
@@ -326,9 +319,7 @@ public class IntroInterface extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                mainGUI.createAiVsAiBattlefield();
-                mainGUI.setPanelBattlefield(new Battlefield(width,heigth, (byte)0, mainGUI));
-                mainGUI.showPanel(mainGUI.getPanelBattlefield());
+                mainGUI.showPanel(new IATypeSelection(width, heigth, mainGUI, true));
             }
         });
 

@@ -35,7 +35,12 @@ public class PoobkemonGUI extends JFrame{
 
     private Battlefield panelBattlefield;
 
+    private String selectedAIType;
+
     private JFileChooser fileChooser = new JFileChooser();
+
+    private boolean isAiVsAiMode;
+
 
     public PoobkemonGUI(String title) {
         super(title);
@@ -133,7 +138,38 @@ public class PoobkemonGUI extends JFrame{
             System.exit(0);
         }
     }
+    public void createAiVsAiBattlefield(String type) {
+        try {
+            Machine ai1 = this.game.createTrainerMachine(type.toLowerCase());
+            Machine ai2 = this.game.createTrainerMachine(type.toLowerCase());
+            this.game.startBotBattle(ai1, ai2);
+            panelBattlefield = new Battlefield(width, heigth, (byte)0, this);
+            showPanel(panelBattlefield);
 
+        } catch (PoobkemonException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
+    public void handleAITypeSelection(String type, boolean isAiVsAi) {
+        this.selectedAIType = type;
+        this.isAiVsAiMode = isAiVsAi;
+
+        if (isAiVsAiMode) {
+            createAiVsAiBattlefield(type);
+        } else {
+            setPanelPokemonSelection(new PokemonSelection(width, heigth, this, true));
+            showPanel(getPanelPokemonSelection());
+        }
+    }
+    public void setSelectedAIType(String type) {
+        this.selectedAIType = type;
+    }
+    public void showNextPanelAfterAISelection() {
+        if (selectedAIType != null) {
+            setPanelPokemonSelection(new PokemonSelection(width, heigth, this, true));
+            showPanel(getPanelPokemonSelection());
+        }
+    }
     public int getWidth() {
         return width;
     }
