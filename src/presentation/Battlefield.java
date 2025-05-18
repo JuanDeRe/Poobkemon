@@ -463,10 +463,10 @@ public class Battlefield extends JPanel {
                     else{
                         String message = "";
                         if (actualPs1 == 0 ){
-                            message = "The winner is Trainer 2";
+                            message = "The winner is "+ mainGui.getTrainerName(false);
                         }
                         else if (actualPs2 == 0){
-                            message = "The winner is Trainer 1";
+                            message = "The winner is "+ mainGui.getTrainerName(true);
                         }
                         int respuesta = JOptionPane.showConfirmDialog(
                                 null,

@@ -264,16 +264,6 @@ public class PoobkemonGUI extends JFrame{
         return game;
     }
 
-    public static void main(String[]args) {
-        try {
-            pokemonFont = Font.createFont(Font.TRUETYPE_FONT,new File("resources/Fonts/pokemon-emerald.otf"));
-        } catch (IOException | FontFormatException e) {
-            throw new RuntimeException(e);
-        }
-        PoobkemonGUI maxwellGUI = new PoobkemonGUI("Pokemon Emerald");
-        maxwellGUI.setVisible(true);
-    }
-
     public void createAiVsAiBattlefield(){
         Machine ai1 = this.game.createTrainerMachine("expert");
         Machine ai2 = this.game.createTrainerMachine("expert");
@@ -353,6 +343,17 @@ public class PoobkemonGUI extends JFrame{
         this.action2 = action2;
     }
 
+    public String getTrainerName(boolean trainer1){
+        String name = "";
+        if(trainer1){
+            name = game.getTrainer1().getName();
+        }
+        else{
+            name = game.getTrainer2().getName();
+        }
+        return name;
+    }
+
     public void startSurvival(){
         this.game.startSurvival();
         panelBattlefield = new Battlefield(this.width, this.heigth, (byte)2, this);
@@ -361,5 +362,15 @@ public class PoobkemonGUI extends JFrame{
 
     public boolean isOver() {
         return game.isOver();
+    }
+
+    public static void main(String[]args) {
+        try {
+            pokemonFont = Font.createFont(Font.TRUETYPE_FONT,new File("resources/Fonts/pokemon-emerald.otf"));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+        PoobkemonGUI maxwellGUI = new PoobkemonGUI("Pokemon Emerald");
+        maxwellGUI.setVisible(true);
     }
 }
