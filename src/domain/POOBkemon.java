@@ -267,11 +267,18 @@ public class POOBkemon {
         this.items.add(new HyperPotion());
         this.items.add(new Potion());
     }
-
-    public List<Item> getItems(){
-        return this.items;
-    }
-
+    /**
+     * Crea una instancia de un ítem basado en su nombre. Los ítems disponibles son:
+     * <ul>
+     *   <li>"Revive" - Crea un objeto Revive</li>
+     *   <li>"Super Potion" - Crea un objeto SuperPotion</li>
+     *   <li>"Hyper Potion" - Crea un objeto HyperPotion</li>
+     *   <li>Cualquier otro nombre - Retorna una Potion básica</li>
+     * </ul>
+     * @param itemName Nombre del ítem a crear (no nulo y no vacío)
+     * @return Instancia del ítem solicitado
+     * @throws PoobkemonException Si el nombre es inválido (INVALID_NAME)
+     */
     public Item createItem(String itemName) throws PoobkemonException{
         if(itemName == null || itemName.trim().isEmpty()){
             throw new PoobkemonException(PoobkemonException.INVALID_NAME);
@@ -289,6 +296,11 @@ public class POOBkemon {
             return new Potion();
         }
     }
+    /**
+     * Obtiene un mapa de todos los ítems disponibles en el sistema, indexados por su nombre.
+     * El mapa se ordena alfabéticamente y contiene instancias únicas de cada tipo de ítem.
+     * @return Mapa con estructura: [Nombre del ítem → Objeto Item correspondiente]
+     */
     public Map<String, Item> getItemsMap() {
         Map<String, Item> itemsMap = new TreeMap<>();
         for(Item item : this.items) {
@@ -443,61 +455,97 @@ public class POOBkemon {
     public Map<Pokemon,List<List<Action>>> getAvailableActions(Trainer trainer) {
         return trainer.getAvailableActions();
     }
-
+    /**
+     * Obtiene las acciones disponibles para el Entrenador 1 en el campo de batalla.
+     * @return Lista de listas de acciones organizadas por: movimientos, ítems y cambios de Pokémon.
+     */
     public List<List<Action>> getAvailableActionsTrainer1(){
         Trainer trainer1 = this.battlefield.getTrainer1();
         return trainer1.getAvailableActions().get(getTrainer1ActivePokemon());
     }
-
+    /**
+     * Obtiene las acciones disponibles para el Entrenador 2 en el campo de batalla.
+     * @return Lista de listas de acciones organizadas por: movimientos, ítems y cambios de Pokémon.
+     */
     public List<List<Action>> getAvailableActionsTrainer2(){
         Trainer trainer2 = this.battlefield.getTrainer2();
         return trainer2.getAvailableActions().get(getTrainer2ActivePokemon());
     }
-
+    /**
+     * Obtiene el Entrenador 1 actual en el campo de batalla.
+     * @return Instancia del Entrenador 1.
+     */
     public Trainer getTrainer1(){
         return this.battlefield.getTrainer1();
     }
-
+    /**
+     * Obtiene el Entrenador 2 actual en el campo de batalla.
+     * @return Instancia del Entrenador 2.
+     */
     public Trainer getTrainer2(){
         return this.battlefield.getTrainer2();
     }
-
+    /**
+     * Obtiene el Pokémon activo del Entrenador 1.
+     * @return Pokémon actualmente en batalla del Entrenador 1.
+     */
     public Pokemon getTrainer1ActivePokemon(){
         return this.battlefield.getTrainer1().getActivePokemon();
     }
-
+    /**
+     * Obtiene el Pokémon activo del Entrenador 2.
+     * @return Pokémon actualmente en batalla del Entrenador 2.
+     */
     public Pokemon getTrainer2ActivePokemon(){
         return this.battlefield.getTrainer2().getActivePokemon();
     }
-
+    /**
+     * Obtiene el nombre del Pokémon activo del Entrenador 1.
+     * @return Nombre del Pokémon en batalla del Entrenador 1.
+     */
     public String getNameActivePokemonTrainer1(){
         return this.battlefield.getTrainer1().getActivePokemon().getName();
     }
-
+    /**
+     * Obtiene el nombre del Pokémon activo del Entrenador 2.
+     * @return Nombre del Pokémon en batalla del Entrenador 2.
+     */
     public String getNameActivePokemonTrainer2(){
         return this.battlefield.getTrainer2().getActivePokemon().getName();
     }
-
+    /**
+     * Obtiene los PS actuales del Pokémon activo del Entrenador 1.
+     * @return Puntos de salud actuales del Pokémon activo.
+     */
     public int getPsPokemonTrainer1(){
         return this.battlefield.getTrainer1().getActivePokemon().getPs();
     }
-
+    /**
+     * Obtiene los PS actuales del Pokémon activo del Entrenador 2.
+     * @return Puntos de salud actuales del Pokémon activo.
+     */
     public int getPsPokemonTrainer2(){
         return this.battlefield.getTrainer2().getActivePokemon().getPs();
     }
-
+    /**
+     * Obtiene los PS máximos del Pokémon activo del Entrenador 1.
+     * @return Máximo de puntos de salud del Pokémon activo.
+     */
     public int getMaxPsPokemonTrainer1(){
         return this.battlefield.getTrainer1().getActivePokemon().getMaxPs();
     }
-
+    /**
+     * Obtiene los PS máximos del Pokémon activo del Entrenador 2.
+     * @return Máximo de puntos de salud del Pokémon activo.
+     */
     public int getMaxPsPokemonTrainer2(){
         return this.battlefield.getTrainer2().getActivePokemon().getMaxPs();
     }
-
-    public List<Trainer> getTrainers() {
-        return this.trainers;
-    }
-
+    /**
+     * Obtiene los tipos de los movimientos del Pokémon activo de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de tipos de movimientos del Pokémon activo.
+     */
     public List<String> getMovesTypes(boolean trainer1) {
         List<String> movesTypes = new ArrayList<>();
         if (trainer1){
@@ -511,7 +559,11 @@ public class POOBkemon {
         }
         return movesTypes;
     }
-
+    /**
+     * Obtiene los nombres de los movimientos del Pokémon activo de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de nombres de movimientos del Pokémon activo.
+     */
     public List<String> getMovesNames(boolean trainer1) {
         List<String> movesNames = new ArrayList<>();
         if (trainer1){
@@ -525,7 +577,11 @@ public class POOBkemon {
         }
         return movesNames;
     }
-
+    /**
+     * Obtiene los PP actuales de los movimientos del Pokémon activo de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de PP restantes de los movimientos.
+     */
     public List<Integer> getMovesPp(boolean trainer1) {
         List<Integer> movesPp = new ArrayList<>();
         if (trainer1){
@@ -539,7 +595,11 @@ public class POOBkemon {
         }
         return movesPp;
     }
-
+    /**
+     * Obtiene los PP máximos de los movimientos del Pokémon activo de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de PP máximos de los movimientos.
+     */
     public List<Integer> getMoveMaxPp(boolean trainer1) {
         List<Integer> movesMaxPp = new ArrayList<>();
         if (trainer1){
@@ -553,7 +613,11 @@ public class POOBkemon {
         }
         return movesMaxPp;
     }
-
+    /**
+     * Obtiene los nombres de los ítems en el inventario de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de nombres de ítems disponibles.
+     */
     public List<String> getItemsNames(boolean trainer1) {
         List<String> itemsNames = new ArrayList<>();
         if (trainer1){
@@ -567,7 +631,11 @@ public class POOBkemon {
         }
         return itemsNames;
     }
-
+    /**
+     * Obtiene las descripciones de los ítems en el inventario de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de descripciones de ítems disponibles.
+     */
     public List<String> getItemDescriptions(boolean trainer1) {
         List<String> itemsDescriptions = new ArrayList<>();
         if (trainer1){
@@ -581,7 +649,11 @@ public class POOBkemon {
         }
         return itemsDescriptions;
     }
-
+    /**
+     * Obtiene las cantidades de los ítems en el inventario de un entrenador.
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de cantidades disponibles para cada ítem.
+     */
     public List<Integer> getItemsAmounts(boolean trainer1) {
         List<Integer> itemsAmounts = new ArrayList<>();
         if (trainer1){
@@ -595,7 +667,11 @@ public class POOBkemon {
         }
         return itemsAmounts;
     }
-
+    /**
+     * Obtiene los nombres de los Pokémon en el equipo de un entrenador (excluyendo al activo).
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de nombres de Pokémon disponibles para cambio.
+     */
     public List<String> getPokemonsNames(boolean trainer1) {
         List<String> pokemonsNames = new ArrayList<>();
         if (trainer1){
@@ -614,7 +690,11 @@ public class POOBkemon {
         }
         return pokemonsNames;
     }
-
+    /**
+     * Obtiene los PS actuales de los Pokémon en el equipo de un entrenador (excluyendo al activo).
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de PS actuales de los Pokémon disponibles para cambio.
+     */
     public List<Integer> getPokemonsPs(boolean trainer1) {
         List<Integer> pokemonsPs = new ArrayList<>();
         if (trainer1){
@@ -633,7 +713,11 @@ public class POOBkemon {
         }
         return pokemonsPs;
     }
-
+    /**
+     * Obtiene los PS máximos de los Pokémon en el equipo de un entrenador (excluyendo al activo).
+     * @param trainer1 Indica si se consulta al Entrenador 1 (true) o 2 (false).
+     * @return Lista de PS máximos de los Pokémon disponibles para cambio.
+     */
     public List<Integer> getPokemonsMaxPs(boolean trainer1) {
         List<Integer> pokemonsMaxPs = new ArrayList<>();
         if (trainer1){
@@ -652,36 +736,60 @@ public class POOBkemon {
         }
         return pokemonsMaxPs;
     }
-
+    /**
+     * Guarda el estado actual del campo de batalla en un archivo mediante serialización.
+     * @param file Archivo destino donde se guardará el estado de la batalla
+     * @throws PoobkemonException Si ocurre un error durante la escritura del archivo (WRITE_ERROR)
+     */
     public void saveBattlefield(File file) throws PoobkemonException{
         try{
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(battlefield);
         } catch (IOException e){
+            Logger.logException(e);
             throw new PoobkemonException(PoobkemonException.WRITE_ERROR);
         }
     }
-
+    /**
+     * Carga un campo de batalla previamente guardado desde un archivo.
+     * @param file Archivo fuente que contiene el estado serializado de la batalla
+     * @throws PoobkemonException Si:
+     *                           - El archivo no existe (FILE_NOT_FOUND)
+     *                           - Hay errores de lectura (READ_ERROR)
+     *                           - El archivo está corrupto (CORRUPT_FILE)
+     */
     public void openBattlefield(File file) throws PoobkemonException{
         try{
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             this.battlefield = (BattleField) ois.readObject();
         }catch (FileNotFoundException e) {
+            Logger.logException(e);
             throw new PoobkemonException(PoobkemonException.FILE_NOT_FOUND);
         } catch (IOException e) {
+            Logger.logException(e);
             throw new PoobkemonException(PoobkemonException.READ_ERROR);
         } catch (ClassNotFoundException e) {
+            Logger.logException(e);
             throw new PoobkemonException(PoobkemonException.CORRUPT_FILE);
         }
     }
 
-
+    /**
+     * Obtiene la instancia actual del campo de batalla.
+     * @return Objeto BattleField con el estado completo de la batalla en curso,
+     *         o null si no hay batalla activa
+     */
     public BattleField getBattlefield() {
         return battlefield;
     }
-
+    /**
+     * Verifica si la batalla actual ha terminado.
+     * @return true si alguno de los entrenadores no tiene Pokémon disponibles,
+     *         false si la batalla continúa
+     * @throws NullPointerException Si no hay un campo de batalla inicializado
+     */
     public boolean isOver() {
         return battlefield.isOver();
     }

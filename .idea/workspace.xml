@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poobkemona.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Poobkemona.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poobkemona.asta.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Poobkemona.asta.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/Poobkemona.asta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/Poobkemona.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/Poobkemona.asta.bak" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/Poobkemona.asta.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/BattleField.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Move.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/POOBkemon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/PoobkemonException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/PoobkemonException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/main/resources/Fonts/pokemon-emerald.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/main/resources/Gifs/Exit.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/main/resources/Gifs/Normal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/main/resources/Gifs/Survival.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/BattleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/POOBkemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/POOBkemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/PoobkemonException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/PoobkemonException.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +46,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Komi-yes"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Komi-yes&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/JuanDeRe/Poobkemon.git&quot;,
@@ -43,6 +62,7 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2wVOoLMvoURDGLSQDDi4Mqv5UOy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -265,39 +285,7 @@
       <option name="project" value="LOCAL" />
       <updated>1747521970481</updated>
     </task>
-    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <option name="closed" value="true" />
-      <created>1747522430667</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1747522430667</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <option name="closed" value="true" />
-      <created>1747522592056</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1747522592056</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <option name="closed" value="true" />
-      <created>1747526585183</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1747526585183</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <option name="closed" value="true" />
-      <created>1747526941492</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1747526941492</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

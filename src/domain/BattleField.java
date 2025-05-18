@@ -65,13 +65,13 @@ public class BattleField implements Serializable {
 	 * @return Lista de notificaciones generadas durante el turno
 	 */
 	public List<Notification> playTurn(Action action1, Action action2) {
-		List<Action> orden = List.of(action1, action2).stream()
+		List<Action> order = List.of(action1, action2).stream()
 				.sorted(
 						Comparator.comparingInt(Action::getPriority).reversed()
 								.thenComparing(Comparator.comparingInt(Action::getSpeed).reversed())
 				).toList();
 		notifications.clear();
-		for (Action action : orden) {
+		for (Action action : order) {
 			action.execute(this);
 		}
 		applyWeatherResidual();     // daño de arena, granizo…
@@ -168,7 +168,11 @@ public class BattleField implements Serializable {
 	}
 
 
-
+	/**
+	 * obtiene el oponente de un pokemon en el campo
+	 * @param pokemon pokemon del que se quiere obtener el rival
+	 * @return pokemon oponente
+	 */
 	public Pokemon getOpponent(Pokemon pokemon) {
 		if (pokemon == this.activePokemon1) {
 			return this.activePokemon2;

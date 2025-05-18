@@ -141,8 +141,8 @@ public class Move implements Serializable {
 				isCrit = critRandom <= this.critRate;
 				dmg = (isCrit) ? dmg * 2 : dmg;
 				target.receiveDamage(dmg);
-				field.notify(new MoveNotification(this.name, this.category, user.getName(), target.getName(), TypesTable.getEffectivityMultiplier(this, target), isCrit, failed, unableToMove, user.getStatusEffect()));
 			}
+			field.notify(new MoveNotification(this.name, this.category, user.getName(), target.getName(), TypesTable.getEffectivityMultiplier(this, target), isCrit, failed, unableToMove, user.getStatusEffect()));
 			for (Effect e : this.secondaryEffects) {
 				e.apply(field, user, effectTarget);
 			}
