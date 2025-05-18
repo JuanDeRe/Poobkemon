@@ -47,8 +47,11 @@ import java.util.Map;
             JPanel row = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
             JLabel lbl = new JLabel(itemName + ":");
             lbl.setFont(PoobkemonGUI.pokemonFont.deriveFont(18f));
-
-            JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, 2, 1));
+            int max = 2;
+            if (itemName.equals("Revive")){
+                max = 1;
+            }
+            JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, max, 1));
             spinner.setPreferredSize(new Dimension(60, 30));
             spinner.setFont(PoobkemonGUI.pokemonFont.deriveFont(16f));
 
@@ -73,7 +76,6 @@ import java.util.Map;
         btnBack.setBackground(Color.RED);
         btnBack.setForeground(Color.WHITE);
         btnBack.addActionListener(e -> {
-            // Resetear selecciones al regresar
             for (JSpinner spinner : quantitySpinners) {
                 spinner.setValue(0);
             }

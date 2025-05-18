@@ -78,14 +78,11 @@ public class PokemonSelection extends JPanel {
                     g.drawLine(0, i * cellHeight, getWidth(), i * cellHeight);
                 }
 
-                // Dibujar imágenes (solo las 2 cargadas)
                 for (int row = 0; row < 6; row++) {
                     for (int col = 0; col < 6; col++) {
                         int index = row * 6 + col;
                         if (index < images.size()) {
                             BufferedImage img = images.get(index);
-
-                            // Calcular posición centrada
                             int x = col * cellWidth + (cellWidth - img.getWidth()) / 2;
                             int y = row * cellHeight + (cellHeight - img.getHeight()) / 2;
 
@@ -120,7 +117,6 @@ public class PokemonSelection extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Actualizar dimensiones de celdas cuando cambia el tamaño
                 int cellWidth = width / 12;
                 int cellHeight = getHeight() / 6;
 
@@ -129,15 +125,11 @@ public class PokemonSelection extends JPanel {
                     g.drawLine(i * cellWidth, 0, i * cellWidth, getHeight());
                     g.drawLine(0, i * cellHeight, getWidth(), i * cellHeight);
                 }
-
-                // Dibujar imágenes (solo las 2 cargadas)
                 for (int row = 0; row < 6; row++) {
                     for (int col = 0; col < 6; col++) {
                         int index = row * 6 + col;
                         if (index < images.size()) {
                             BufferedImage img = images.get(index);
-
-                            // Calcular posición centrada
                             int x = col * cellWidth + (cellWidth - img.getWidth()) / 2;
                             int y = row * cellHeight + (cellHeight - img.getHeight()) / 2;
 
@@ -154,7 +146,6 @@ public class PokemonSelection extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Actualizar dimensiones de celdas cuando cambia el tamaño
                 int cellWidth = width / 12;
                 int cellHeight = getHeight() / 6;
 
@@ -164,14 +155,11 @@ public class PokemonSelection extends JPanel {
                     g.drawLine(0, i * cellHeight, getWidth(), i * cellHeight);
                 }
 
-                // Dibujar imágenes (solo las 2 cargadas)
                 for (int row = 0; row < 6; row++) {
                     for (int col = 0; col < 6; col++) {
                         int index = row * 6 + col;
                         if (index < images.size()) {
                             BufferedImage img = images.get(index);
-
-                            // Calcular posición centrada
                             int x = col * cellWidth + (cellWidth - img.getWidth()) / 2;
                             int y = row * cellHeight + (cellHeight - img.getHeight()) / 2;
 
@@ -224,7 +212,7 @@ public class PokemonSelection extends JPanel {
             public void mouseEntered(MouseEvent e) {
 
                 Graphics g2d = backLabel.getGraphics();
-                g2d.setColor(new Color(0, 0, 0, 100)); // Negro con 40% de opacidad
+                g2d.setColor(new Color(0, 0, 0, 100));
                 g2d.fillRect(0, 0, backLabel.getWidth(), backLabel.getHeight());
                 g2d.dispose();
 
@@ -245,7 +233,7 @@ public class PokemonSelection extends JPanel {
             public void mouseEntered(MouseEvent e) {
 
                 Graphics g2d = confirmLabel.getGraphics();
-                g2d.setColor(new Color(0, 0, 0, 100)); // Negro con 40% de opacidad
+                g2d.setColor(new Color(0, 0, 0, 100));
                 g2d.fillRect(0, 0, confirmLabel.getWidth(), confirmLabel.getHeight());
                 g2d.dispose();
 
@@ -262,29 +250,17 @@ public class PokemonSelection extends JPanel {
                     JOptionPane.showMessageDialog(panelPokemonSelection1, "you haven't selected a team yet", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
                 else {
-                    //panelAbilitiesSelection = new AbilitiesSelection(mainGui, pokemonNamesTrainer1);
-                    //mainGui.setPanelPokemonSelection( panelAbilitiesSelection );
-                    //mainGui.showPanel(panelAbilitiesSelection);
-                    //List<List<Move>> pokemonTeam = panelAbilitiesSelection.getTeamMoves();
                     panelAbilitiesSelection = new AbilitiesSelection(mainGui, pokemonNamesTrainer1);
                     mainGui.setPanelAbilitiesSelection( panelAbilitiesSelection );
-
-                    // 2. Configurar callback para movimientos
                     panelAbilitiesSelection.setOnConfirmCallback(() -> {
-                        // 3. Crear panel de ítems solo cuando los movimientos estén listos
                         panelItemSelection = new ItemSelection(mainGui);
                         panelItemSelection.setOnConfirmCallback(() -> {
-                            // 4. Obtener datos y empezar batalla
                             List<List<Move>> moves = panelAbilitiesSelection.getTeamMoves();
                             Map<Item, Integer> itemsWithQty = panelItemSelection.getSelectedItemsWithQty();
                             startBattleWithSelections(moves, itemsWithQty);
                         });
-
-                        // 5. Mostrar panel de ítems
                         mainGui.showPanel(panelItemSelection);
                     });
-
-                    // 6. Mostrar panel de movimientos primero
                     mainGui.showPanel(panelAbilitiesSelection);
                 }
             }
@@ -295,11 +271,9 @@ public class PokemonSelection extends JPanel {
         panelPokemonSelection1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e){
-                // Calcular celda bajo el mouse
+
                 int x = e.getX();
                 int y = e.getY();
-
-                // Determinar fila y columna
                 int cellHeight;
                 int row = y / (panelPokemonSelection1.getHeight()/6);
                 int col = x / (panelPokemonSelection1.getWidth()/6);
@@ -314,11 +288,8 @@ public class PokemonSelection extends JPanel {
         panelPokemonSelection2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e){
-                // Calcular celda bajo el mouse
                 int x = e.getX();
                 int y = e.getY();
-
-                // Determinar fila y columna
                 int cellHeight;
                 int row = y / (panelPokemonSelection2.getHeight()/6);
                 int col = x / (panelPokemonSelection2.getWidth()/6);
@@ -379,19 +350,15 @@ public class PokemonSelection extends JPanel {
                     AbilitiesSelection abilities1 = new AbilitiesSelection(mainGui, pokemonNamesTrainer1);
                     abilities1.setOnConfirmCallback(() -> {
                         movesPlayer1 = abilities1.getTeamMoves();
-                        // 3) Ahora J2 selecciona movimientos
                         AbilitiesSelection abilities2 = new AbilitiesSelection(mainGui, pokemonNamesTrainer2);
                         abilities2.setOnConfirmCallback(() -> {
                             movesPlayer2 = abilities2.getTeamMoves();
-                            // 4) Ahora J1 selecciona ítems
                             ItemSelection itemsSel1 = new ItemSelection(mainGui);
                             itemsSel1.setOnConfirmCallback(() -> {
                                 itemsPlayer1 = itemsSel1.getSelectedItemsWithQty();
-                                // 5) Ahora J2 selecciona ítems
                                 ItemSelection itemsSel2 = new ItemSelection(mainGui);
                                 itemsSel2.setOnConfirmCallback(() -> {
                                     itemsPlayer2 = itemsSel2.getSelectedItemsWithQty();
-                                    // 6) ¡Arranca batalla!
                                     startBattleTwoPlayers();
                                 });
                                 mainGui.showPanel(itemsSel2);
@@ -447,8 +414,6 @@ public class PokemonSelection extends JPanel {
             Player player1 = mainGui.getGame().createTrainerPlayer(
                     "Player 1", team1, itemsPlayer1, "Red"
             );
-
-            // Equipo J2
             ArrayList<Pokemon> team2 = new ArrayList<>();
             for (int i = 0; i < pokemonNamesTrainer2.size(); i++) {
                 team2.add(POOBkemon.createPokemon(
@@ -460,10 +425,8 @@ public class PokemonSelection extends JPanel {
                     "Player 2", team2, itemsPlayer2, "Blue"
             );
 
-            // Iniciar batalla PvP
             mainGui.getGame().startTwoPlayerBattle(player1, player2);
 
-            // Mostrar battlefield (puede ser el mismo panel vacío para ir probando)
             Battlefield bfPanel = new Battlefield(this.width,this.height,(byte)2, mainGui);
             mainGui.setPanelBattlefield(bfPanel);
             mainGui.showPanel(bfPanel);
