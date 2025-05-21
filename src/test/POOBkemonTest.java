@@ -120,17 +120,11 @@ class POOBkemonTest {
     @Test
     public void testStartValidBattle() {
         try {
-        // Configuración
             ArrayList<Pokemon> team = new ArrayList<>();
             team.add(POOBkemon.createPokemon("Sceptile", validMoveSet));
-            
             Player human = new Player("Ash", team, testInventory, "red");
             Machine machine = new AttackingTrainer(testInventory);
-            
-            // Ejecución
             game.startOnePlayerBattle(human, machine);
-            
-            // Verificaciones
             Map<Pokemon, List<List<Action>>> actions = game.getAvailableActions(human);
             assertAll(
                 () -> assertNotNull(actions, "Acciones no deberían ser nulas"),

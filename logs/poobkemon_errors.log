@@ -51,3 +51,13 @@
 [2025-05-17T21:52:53.437368700] StreamCorruptedException: invalid stream header: ACED2005
 [2025-05-17T22:33:36.798436200] PoobkemonException: No more than 6 pokemon can be selected
 [2025-05-17T22:33:41.560752500] PoobkemonException: No more than 6 pokemon can be selected
+[2025-05-17T23:35:50.139575700] PoobkemonException: Tipo de máquina inválido: invalid_type
+[2025-05-17T23:35:50.156577800] PoobkemonException: No pokemon selected
+[2025-05-17T23:35:50.203580300] PoobkemonException: No more than 4 moves
+[2025-05-17T23:35:50.262587300] PoobkemonException: Invalid name
+[2025-05-17T23:35:50.267587100] PoobkemonException: Invalid name
+[2025-05-17T23:36:07.744576800] PoobkemonException: Tipo de máquina inválido: invalid_type
+[2025-05-17T23:36:07.769578500] PoobkemonException: No pokemon selected
+[2025-05-17T23:36:07.825582300] PoobkemonException: No more than 4 moves
+[2025-05-17T23:36:07.901588600] PoobkemonException: Invalid name
+[2025-05-17T23:36:07.905593200] PoobkemonException: Invalid name
