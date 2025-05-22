@@ -40,7 +40,15 @@ public class AttackingTrainer extends Machine {
                 POOBkemon.createMove("Dragon Claw"),
                 POOBkemon.createMove("Sword Dance")
         );
+        List<Move> moveSet2 = List.of(
+                POOBkemon.createMove("Razor Leaf"),
+                POOBkemon.createMove("Earthquake"),
+                POOBkemon.createMove("Thunder"),
+                POOBkemon.createMove("Sword Dance")
+        );
+
         moveSets.add(moveSet1);
+        moveSets.add(moveSet2);
 
         List<Pokemon> team = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
@@ -59,6 +67,7 @@ public class AttackingTrainer extends Machine {
      * @return Acción seleccionada (movimiento de ataque o potenciador)
      */
     public Action chooseAction(BattleField field) {
+        updateAvailableActions();
         Pokemon user = this.getActivePokemon();
         List<Action> availableMoves = this.getAvailableActions().get(user).get(0);
         String currentWeather = field.getWeather();

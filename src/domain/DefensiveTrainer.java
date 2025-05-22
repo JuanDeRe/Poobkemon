@@ -62,6 +62,7 @@ public class DefensiveTrainer extends Machine {
      */
     @Override
     public Action chooseAction(BattleField field) {
+        updateAvailableActions();
         Pokemon user = this.getActivePokemon();
         List<Action> availableMoves = this.getAvailableActions().get(user).get(0);
         String currentWeather = field.getWeather();

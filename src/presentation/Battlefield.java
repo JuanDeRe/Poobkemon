@@ -999,7 +999,7 @@ public class Battlefield extends JPanel {
         if(trainer1){
             for(Integer ps : psNonActivePokemons){
                 if(ps > 0){
-                    mainGui.getAvailableActionsTrainer1().get(2).get(psNonActivePokemons.indexOf(ps)).execute(mainGui.getBattlefieldGame());
+                    mainGui.getAvailableActionsTrainer1().get(2).get(0).execute(mainGui.getBattlefieldGame());
                     this.updatePokemon(trainer1);
                     return;
                 }
@@ -1008,7 +1008,7 @@ public class Battlefield extends JPanel {
         else{
             for(Integer ps : psNonActivePokemons){
                 if(ps > 0){
-                    mainGui.getAvailableActionsTrainer2().get(2).get(psNonActivePokemons.indexOf(ps)).execute(mainGui.getBattlefieldGame());
+                    mainGui.getAvailableActionsTrainer2().get(2).get(0).execute(mainGui.getBattlefieldGame());
                     this.updatePokemon(trainer1);
                     return;
                 }

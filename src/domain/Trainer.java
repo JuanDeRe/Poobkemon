@@ -152,7 +152,7 @@ public abstract class  Trainer implements Serializable {
         this.activePokemon = team.get(0);
         updateAvailableActions();
     }
-    private void updateAvailableActions(){
+    protected void updateAvailableActions(){
         this.availableActions = new HashMap<>();
         for(Pokemon p : team) {
             List<Action> availableMoves = new ArrayList<>();

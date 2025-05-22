@@ -45,8 +45,22 @@ public class ExpertTrainer extends Machine {
                 POOBkemon.createMove("Iron Defense"),
                 POOBkemon.createMove("Dragon Claw")
         );
+        List<Move> moveSet3 = List.of(
+                POOBkemon.createMove("Earthquake"),
+                POOBkemon.createMove("Double Team"),
+                POOBkemon.createMove("Iron Defense"),
+                POOBkemon.createMove("Razor Leaf")
+        );
+        List<Move> moveSet4 = List.of(
+                POOBkemon.createMove("Thunder"),
+                POOBkemon.createMove("Double Team"),
+                POOBkemon.createMove("Iron Defense"),
+                POOBkemon.createMove("Dragon Claw")
+        );
         moveSets.add(moveSet1);
         moveSets.add(moveSet2);
+        moveSets.add(moveSet3);
+        moveSets.add(moveSet4);
 
         List<Pokemon> team = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
@@ -72,13 +86,25 @@ public class ExpertTrainer extends Machine {
      */
     @Override
     public Action chooseAction(BattleField field) {
+        updateAvailableActions();
         Pokemon active = this.getActivePokemon();
         Pokemon opponent = field.getOpponent(active);
 
         Pokemon bestSwitch = findBestSwitch(active, opponent);
         if (bestSwitch != null) {
-            int switchIndex = this.getTeam().indexOf(bestSwitch);
-            return this.getAvailableActions().get(active).get(2).get(switchIndex);
+            List<Action> switchActions = this.getAvailableActions().get(active).get(2);
+            int switchIndex = -1;
+            for (int i = 0; i < switchActions.size(); i++) {
+                SwitchAction action = (SwitchAction) switchActions.get(i);
+                if (action.getTeamMemberIndex() == this.getTeam().indexOf(bestSwitch)) {
+                    switchIndex = i;
+                    break;
+                }
+            }
+
+            if (switchIndex != -1) {
+                return switchActions.get(switchIndex);
+            }
         }
 
         if (Objects.equals(active.getPs(), active.getMaxPs())) {

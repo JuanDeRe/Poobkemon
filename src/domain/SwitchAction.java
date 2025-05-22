@@ -54,5 +54,8 @@ public class SwitchAction implements Action, Serializable {
 		field.updateActives();
 		field.notify(new SwitchNotification(trainer.getActivePokemon().getName(),trainer.getName()));
 	}
+	public int getTeamMemberIndex(){
+		return teamMember;
+	}
 
 }

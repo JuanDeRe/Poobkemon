@@ -60,6 +60,7 @@ public class ChangingTrainer extends Machine {
      */
     @Override
     public Action chooseAction(BattleField field) {
+        updateAvailableActions();
         Pokemon active = getActivePokemon();
         Pokemon opponent = field.getOpponent(active);
         double bestAdv = TypesTable.getMultiplier(active.getTypes(), opponent.getTypes());
@@ -77,7 +78,7 @@ public class ChangingTrainer extends Machine {
         if (bestSwitch != null) {
             List<Action> switchActions = this.getAvailableActions().get(active).get(2);
             List<Pokemon> switchCandidates = getTeam().stream()
-                   .filter(p -> p != active && p.isAlive())
+                   .filter(p -> !p.equals(active) && p.isAlive())
                    .collect(Collectors.toList());
     
             int idx = switchCandidates.indexOf(bestSwitch);

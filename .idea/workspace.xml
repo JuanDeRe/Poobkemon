@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="final commit">
+    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Ia images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/AttackingTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/AttackingTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/ChangingTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ChangingTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/DefensiveTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/DefensiveTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/ExpertTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ExpertTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/SwitchAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SwitchAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Trainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Battlefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/Battlefield.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +69,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Tercera-Entrega&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -171,6 +180,11 @@
       <workItem from="1747437001747" duration="1000" />
       <workItem from="1747438350052" duration="2210000" />
       <workItem from="1747444045267" duration="1213000" />
+      <workItem from="1747854455922" duration="601000" />
+      <workItem from="1747855088936" duration="66000" />
+      <workItem from="1747855181745" duration="165000" />
+      <workItem from="1747869580786" duration="2508000" />
+      <workItem from="1747881501477" duration="4744000" />
     </task>
     <task id="LOCAL-00001" summary="overfailure">
       <option name="closed" value="true" />
@@ -276,7 +290,47 @@
       <option name="project" value="LOCAL" />
       <updated>1747541677269</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated trainers">
+      <option name="closed" value="true" />
+      <created>1747542312040</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747542312040</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updated trainers">
+      <option name="closed" value="true" />
+      <created>1747542351497</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747542351497</updated>
+    </task>
+    <task id="LOCAL-00016" summary="final commit">
+      <option name="closed" value="true" />
+      <created>1747542785226</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1747542785226</updated>
+    </task>
+    <task id="LOCAL-00017" summary="final commit">
+      <option name="closed" value="true" />
+      <created>1747542825640</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1747542825640</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Ia images">
+      <option name="closed" value="true" />
+      <created>1747855324167</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747855324167</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,8 +355,10 @@
     <MESSAGE value="falides moves fixed" />
     <MESSAGE value="new pokemons" />
     <MESSAGE value="Merge remote-tracking branch 'origin/Tercera-Entrega' into Tercera-Entrega&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="Updated trainers" />
     <MESSAGE value="final commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="final commit" />
+    <MESSAGE value="Ia images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ia images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -315,6 +371,10 @@
         <breakpoint type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="4" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
