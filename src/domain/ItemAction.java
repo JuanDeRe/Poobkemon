@@ -49,8 +49,8 @@ public class ItemAction implements Action, Serializable {
 	 *           - La notificación se envía después de la aplicación
 	 */
 	public void execute(BattleField field) {
-		this.trainer.useItem(item);
 		this.item.Effect(this.pokemon);
+		this.trainer.useItem(item);
 		field.notify(new ItemNotification(item.getName(),trainer.getName()));
 	}
 	/**

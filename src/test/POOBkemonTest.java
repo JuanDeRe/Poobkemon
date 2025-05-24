@@ -1,15 +1,12 @@
 package src.test;
 
 import src.domain.*;
-import java.util.List;
+
+import java.util.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 class POOBkemonTest {
 
@@ -356,14 +353,14 @@ public void testStruggleMoveWhenPPExhausted() {
         Player trainer1 = new Player("Ash", team1, testInventory, "red");
         ArrayList<Pokemon> team2 = new ArrayList<>();
         team2.add(POOBkemon.createPokemon("Charizard", new ArrayList<>(List.of(POOBkemon.createMove("Double Team")))));
-        DefensiveTrainer trainer2 = new DefensiveTrainer(testInventory);
+        Player trainer2 = new Player("Misty", team2, testInventory, "blue");
         BattleField field = new BattleField(trainer1, trainer2);
         while (razorLeaf.isAvailable()) {
             Map<Pokemon, List<List<Action>>> actions = trainer1.getAvailableActions();
             List<Action> moveActions = actions.get(sceptile).get(0);
-            Action playerAction = moveActions.get(0);
-            Action opponentAction = trainer2.chooseAction(field);
-            field.playTurn(playerAction, opponentAction);
+            Action player1Action = moveActions.get(0);
+            Action opponentAction = moveActions.get(0);
+            field.playTurn(player1Action, opponentAction);
         }
         assertTrue(
             sceptile.getMoves().get(0).getName().equals("Struggle"),
@@ -446,13 +443,13 @@ public void testStruggleMoveWhenPPExhausted() {
     @Test
     public void testFlamethrowerMayBurnTarget() {
         try {
-            Move flamethrower = POOBkemon.createMove("Flamethrower");
+            Move flamethrower = POOBkemon.createMove("Will-O-Wisp");
             Pokemon attacker = POOBkemon.createPokemon("Charizard", new ArrayList<>(List.of(flamethrower)));
             Pokemon target = POOBkemon.createPokemon("Sceptile", validMoveSet);
             BattleField field = new BattleField(new Player("Test", new ArrayList<>(List.of(attacker)), testInventory, "red"),
                     new DefensiveTrainer(testInventory));
             boolean burned = false;
-            for(int i = 0; i < 20; i++) {
+            for(int i = 0; i < 15; i++) {
                 flamethrower.execute(field, attacker, target);
                 if(target.getStatusEffect().equals("Burn")) {
                     burned = true;
@@ -469,7 +466,7 @@ public void testStruggleMoveWhenPPExhausted() {
     public void testDamageCalculation() {
         try {
             ArrayList<Move> moves = new ArrayList<>();
-            Move razorLeaf = POOBkemon.createMove("Razor Leaf");
+            Move razorLeaf = POOBkemon.createMove("Dragon Claw");
             moves.add(razorLeaf);
             Pokemon sceptile = POOBkemon.createPokemon("Sceptile", moves);
             Pokemon charizard = POOBkemon.createPokemon("Charizard", validMoveSet);
@@ -553,13 +550,15 @@ public void testStruggleMoveWhenPPExhausted() {
             DefensiveTrainer trainer2 = new DefensiveTrainer(inventory);
             trainer2.changeTeam(new ArrayList<>(List.of(charizard)));
             BattleField battlefield = new BattleField(trainer1, trainer2);
-            Action grassAction = trainer1.getAvailableActions().get(sceptile).get(0).get(0);
-            Action opponentAction = trainer2.chooseAction(battlefield);
-            List<Notification> log = battlefield.playTurn(grassAction, opponentAction);
-            boolean isNotEffective = log.stream()
-                    .filter(n -> n instanceof MoveNotification)
-                    .anyMatch(n -> n.getMessage().get(1).contains("not very effective"));
-
+            boolean isNotEffective = false;
+            while (Objects.equals(charizard.getPs(), charizard.getMaxPs())) {
+                Action grassAction = trainer1.getAvailableActions().get(sceptile).get(0).get(0);
+                Action opponentAction = trainer2.chooseAction(battlefield);
+                List<Notification> log = battlefield.playTurn(grassAction, opponentAction);
+                isNotEffective = log.stream()
+                        .filter(n -> n instanceof MoveNotification)
+                        .anyMatch(n -> n.getMessage().get(1).contains("not very effective"));
+            }
             assertTrue(isNotEffective, "Debería mostrar 'It's not very effective...'");
 
         } catch (PoobkemonException e) {

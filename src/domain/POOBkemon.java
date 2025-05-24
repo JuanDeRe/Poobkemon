@@ -125,6 +125,15 @@ public class POOBkemon {
                 "A powerful quake, but has no effect on flying foes.",
                 6, false
         ));
+        ArrayList<Effect> WilloEffects = new ArrayList<>();
+        WilloEffects.add(new StatusEffect("Burn", 100));
+        movements.put("Will-O-Wisp", new Move(
+                "Will-O-Wisp", "Fire", "State",
+                15, 0, 75, 0,
+                WilloEffects,
+                "Inflicts a burn on the foe with intense fire.",
+                0, false
+        ));
     }
 
     private void generatePokemons(){

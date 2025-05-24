@@ -64,7 +64,7 @@ public abstract class  Trainer implements Serializable {
             }
             inventory.remove(usedItem);
         }
-
+        updateAvailableActions();
     }
     /**
      * Cambia el Pokémon activo por otro del equipo.
