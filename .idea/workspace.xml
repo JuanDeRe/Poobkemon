@@ -114,7 +114,7 @@
       <recent name="C:\Users\danip\IdeaProjects\Poobkemon\resources\Images\Icons" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.POOBkemonTest.testStruggleMoveWhenPPExhausted">
+  <component name="RunManager" selected="Application.PoobkemonGUI">
     <configuration name="PoobkemonGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.presentation.PoobkemonGUI" />
       <module name="Poobkemon" />
@@ -193,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PoobkemonGUI" />
         <item itemvalue="JUnit.POOBkemonTest.testStruggleMoveWhenPPExhausted" />
         <item itemvalue="JUnit.POOBkemonTest" />
         <item itemvalue="JUnit.POOBkemonTest.testCreateValidHumanTrainer" />
         <item itemvalue="JUnit.POOBkemonTest.testStartValidBattle" />
-        <item itemvalue="Application.PoobkemonGUI" />
       </list>
     </recent_temporary>
   </component>

@@ -161,15 +161,7 @@ public class PoobkemonGUI extends JFrame{
             showPanel(getPanelPokemonSelection());
         }
     }
-    public void setSelectedAIType(String type) {
-        this.selectedAIType = type;
-    }
-    public void showNextPanelAfterAISelection() {
-        if (selectedAIType != null) {
-            setPanelPokemonSelection(new PokemonSelection(width, heigth, this, true));
-            showPanel(getPanelPokemonSelection());
-        }
-    }
+
     public int getWidth() {
         return width;
     }
@@ -204,10 +196,6 @@ public class PoobkemonGUI extends JFrame{
         return panelIntro;
     }
 
-    public void setPanelIntro(JPanel panelIntro) {
-        this.panelIntro = panelIntro;
-    }
-
     public void setPanelPokemonSelection(JPanel panelPokemonSelection) {
         this.panelPokemonSelection = panelPokemonSelection;
     }
@@ -230,14 +218,6 @@ public class PoobkemonGUI extends JFrame{
 
     public void setPanelAbilitiesSelection(JPanel panelAbilitiesSelection) {
         this.panelAbilitiesSelection = panelAbilitiesSelection;
-    }
-
-    public JPanel getPanelItemSelection() {
-        return panelItemSelection;
-    }
-
-    public void setPanelItemSelection(JPanel panelItemSelection) {
-        this.panelItemSelection = panelItemSelection;
     }
 
     public void setPanelBattlefieldBag(JPanel panelBattlefieldBag) {
@@ -263,14 +243,6 @@ public class PoobkemonGUI extends JFrame{
 
     public Map<Pokemon,List<List<Action>>> getAvailableActionsTrainerUseItem(boolean trainer1){
         return game.getAvailableActions(trainer1);
-    }
-
-    public Pokemon getTrainer1ActivePokemon(){
-        return game.getTrainer1ActivePokemon();
-    }
-
-    public Pokemon getTrainer2ActivePokemon(){
-        return game.getTrainer2ActivePokemon();
     }
 
     public String getNameActivePokemonTrainer1(){
@@ -299,13 +271,6 @@ public class PoobkemonGUI extends JFrame{
 
     public POOBkemon getGame() {
         return game;
-    }
-
-    public void createAiVsAiBattlefield(){
-        Machine ai1 = this.game.createTrainerMachine("expert");
-        Machine ai2 = this.game.createTrainerMachine("expert");
-        this.game.startBotBattle(ai1,ai2);
-
     }
 
     public List<String> getMovesNames(boolean trainer1) {
