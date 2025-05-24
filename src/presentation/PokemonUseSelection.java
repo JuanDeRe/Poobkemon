@@ -1,5 +1,7 @@
 package src.presentation;
 
+import src.domain.Pokemon;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -13,6 +15,7 @@ public class PokemonUseSelection extends JPanel{
     private List<JPanel> nonActivePokemonsPanels;
     private List<String> nonActivePokemonsNames;
     private List<Integer> nonActivePokemonsPs, nonActivePokemonsMaxPs;
+    private List<Pokemon> nonActivePokemons;
     private String activePokemonName;
     private int activePokemonPs, activePokemonMaxPs;
     private PoobkemonGUI mainGUI;
@@ -38,6 +41,7 @@ public class PokemonUseSelection extends JPanel{
         this.setLayout(null);
         loadBackgroundImages();
         setResolutionMultiplier();
+        nonActivePokemons = mainGUI.getNonActivePokemons(trainer1);
         nonActivePokemonsNames = mainGUI.getPokemonsNames(trainer1);
         nonActivePokemonsPs = mainGUI.getPokemonsPs(trainer1);
         nonActivePokemonsMaxPs = mainGUI.getPokemonsMaxPs(trainer1);
@@ -211,24 +215,23 @@ public class PokemonUseSelection extends JPanel{
                         battlefieldPanel.getTrainerText().setVisible(true);
                         mainGUI.showPanel(mainGUI.getPanelBattlefield());
                     }
-                    else if (!toSwitch){
+                    if (!toSwitch){
                         mainGUI.showPanel(mainGUI.getPanelBattlefield());
                         if( battlefieldPanel.getGameMode() == 2){
                             battlefieldPanel.changeTurn();
-                            trainer1 = !trainer1;
-                            if(!trainer1){
+                            if(trainer1){
                                 SwingUtilities.invokeLater(() -> {
                                     battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer2Text());
                                     battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
                                 });
-                                mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(1).get(indexItemToUse));
+                                mainGUI.setAction1(mainGUI.getAvailableActionsTrainerUseItem(trainer1).get(nonActivePokemons.get(nonActivePokemonsPanels.indexOf(panel))).get(1).get(indexItemToUse));
                             }
                             else{
                                 battlefieldPanel.getActionSelector().setVisible(false);
                                 battlefieldPanel.getTrainerText().setVisible(false);
                                 battlefieldPanel.getTrainerText().setText(battlefieldPanel.getTrainer1Text());
                                 battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
-                                mainGUI.setAction2(mainGUI.getAvailableActionsTrainer2().get(1).get(indexItemToUse));
+                                mainGUI.setAction2(mainGUI.getAvailableActionsTrainerUseItem(trainer1).get(nonActivePokemons.get(nonActivePokemonsPanels.indexOf(panel))).get(1).get(indexItemToUse));
                                 battlefieldPanel.prepareNotifications();
                             }
                         }
@@ -236,7 +239,7 @@ public class PokemonUseSelection extends JPanel{
                             battlefieldPanel.getActionSelector().setVisible(false);
                             battlefieldPanel.getTrainerText().setVisible(false);
                             battlefieldPanel.getActionsAndNotificationPanel().setVisible(true);
-                            mainGUI.setAction1(mainGUI.getAvailableActionsTrainer1().get(1).get(indexItemToUse));
+                            mainGUI.setAction1(mainGUI.getAvailableActionsTrainerUseItem(trainer1).get(nonActivePokemons.get(nonActivePokemonsPanels.indexOf(panel))).get(1).get(indexItemToUse));
                             battlefieldPanel.prepareNotifications();
                         }
                     }

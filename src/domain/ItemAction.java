@@ -57,8 +57,6 @@ public class ItemAction implements Action, Serializable {
 	 * Obtiene el ítem asociado a esta acción.
 	 * @return Instancia del ítem que será/se ha utilizado en la acción.
 	 */
-	public Item getItem(){
-		return this.item;
-	}
+	public Item getItem(){return this.item;}
 
 }

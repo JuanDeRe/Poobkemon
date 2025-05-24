@@ -255,13 +255,14 @@ public class PoobkemonGUI extends JFrame{
         return POOBkemon.createMove(name);
     }
 
-    public List<List<Action>> getAvailableActionsTrainer1(){
-
-        return game.getAvailableActionsTrainer1();
-    }
+    public List<List<Action>> getAvailableActionsTrainer1(){return game.getAvailableActionsTrainer1();}
 
     public List<List<Action>> getAvailableActionsTrainer2(){
         return game.getAvailableActionsTrainer2();
+    }
+
+    public Map<Pokemon,List<List<Action>>> getAvailableActionsTrainerUseItem(boolean trainer1){
+        return game.getAvailableActions(trainer1);
     }
 
     public Pokemon getTrainer1ActivePokemon(){
@@ -394,6 +395,10 @@ public class PoobkemonGUI extends JFrame{
         this.game.startSurvival();
         panelBattlefield = new Battlefield(this.width, this.heigth, (byte)2, this);
         this.showPanel(panelBattlefield);
+    }
+
+    public List<Pokemon> getNonActivePokemons(boolean trainer1) {
+        return game.getNonActivePokemons(trainer1);
     }
 
     public boolean isOver() {

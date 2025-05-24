@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Ia images">
+    <list default="true" id="244eacc6-f712-407e-838e-87c95bab40e6" name="Changes" comment="Ias fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/lib/junit-jupiter-engine-5.8.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/AttackingTrainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/AttackingTrainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/ChangingTrainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/ChangingTrainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/DefensiveTrainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/DefensiveTrainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/ExpertTrainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/ExpertTrainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/SwitchAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/SwitchAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/domain/Trainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poobkemon/src/presentation/Battlefield.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/POOBkemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/POOBkemonTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +47,13 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/JuanDeRe/Poobkemon.git&quot;,
-    &quot;accountId&quot;: &quot;4857aeda-2d45-4c2a-98d1-96b1dddc9308&quot;
+    &quot;accountId&quot;: &quot;cef4044e-6b56-4d2c-a580-8635e4e20e23&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2wVOoLMvoURDGLSQDDi4Mqv5UOy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,6 +63,7 @@
     &quot;Application.PoobkemonGUI.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.POOBkemonTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.POOBkemonTest.testReviveRestoresFaintedPokemon.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -68,7 +76,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/danip/IdeaProjects/Poobkemon/resources/Gifs/Pokemons&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danip/OneDrive/Desktop/Poobkemonnn&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -125,9 +133,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="POOBkemonTest.testReviveRestoresFaintedPokemon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Poobkemon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="src.test" />
+      <option name="MAIN_CLASS_NAME" value="src.test.POOBkemonTest" />
+      <option name="METHOD_NAME" value="testReviveRestoresFaintedPokemon" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.PoobkemonGUI" />
+        <item itemvalue="JUnit.POOBkemonTest.testReviveRestoresFaintedPokemon" />
         <item itemvalue="JUnit.POOBkemonTest" />
       </list>
     </recent_temporary>
@@ -135,8 +160,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
@@ -177,6 +202,8 @@
       <workItem from="1747855088936" duration="66000" />
       <workItem from="1747855181745" duration="165000" />
       <workItem from="1747869580786" duration="2508000" />
+      <workItem from="1747881501477" duration="4841000" />
+      <workItem from="1748041276544" duration="1781000" />
     </task>
     <task id="LOCAL-00001" summary="overfailure">
       <option name="closed" value="true" />
@@ -322,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747855324167</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Ias fix">
+      <option name="closed" value="true" />
+      <created>1747886313080</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1747886313080</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +385,8 @@
     <MESSAGE value="Updated trainers" />
     <MESSAGE value="final commit" />
     <MESSAGE value="Ia images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ia images" />
+    <MESSAGE value="Ias fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ias fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -363,6 +399,10 @@
         <breakpoint type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="4" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -444,7 +444,7 @@ public class POOBkemon {
     }
     /**
      * Obtiene todas las acciones disponibles para un entrenador durante su turno
-     * @param trainer Entrenador del que se solicitan las acciones
+     * @param trainer1 Entrenador del que se solicitan las acciones
      * @return Mapa con estructura:
      *         Pokémon activo -> [
      *             Lista de movimientos,
@@ -452,8 +452,13 @@ public class POOBkemon {
      *             Lista de cambios de Pokémon
      *         ]
      */
-    public Map<Pokemon,List<List<Action>>> getAvailableActions(Trainer trainer) {
-        return trainer.getAvailableActions();
+    public Map<Pokemon,List<List<Action>>> getAvailableActions(boolean trainer1) {
+        if (trainer1){
+            return getTrainer1().getAvailableActions();
+        }
+        else{
+            return getTrainer2().getAvailableActions();
+        }
     }
     /**
      * Obtiene las acciones disponibles para el Entrenador 1 en el campo de batalla.
@@ -791,6 +796,25 @@ public class POOBkemon {
      */
     public boolean isOver() {
         return battlefield.isOver();
+    }
+
+    public List<Pokemon> getNonActivePokemons(boolean trainer1) {
+        List<Pokemon> nonActivePokemons = new ArrayList<>();
+        if (trainer1){
+            for (Pokemon p : this.getTrainer1().getTeam()){
+                if(!Objects.equals(p, this.getTrainer1ActivePokemon())){
+                    nonActivePokemons.add(p);
+                }
+            }
+        }
+        else {
+            for (Pokemon p : this.getTrainer2().getTeam()){
+                if(!Objects.equals(p, this.getTrainer2ActivePokemon())){
+                    nonActivePokemons.add(p);
+                }
+            }
+        }
+        return nonActivePokemons;
     }
 }
 

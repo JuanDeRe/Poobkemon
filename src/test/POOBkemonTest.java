@@ -94,7 +94,7 @@ class POOBkemonTest {
             }};
 
             Player p = game.createTrainerPlayer("Ash", team, testInventory, "red");
-            assertFalse(game.getAvailableActions(p).get(team.get(0)).isEmpty());
+            assertFalse(p.getAvailableActions().isEmpty());
         } catch (PoobkemonException e) {
             fail("No debería lanzar excepción");
         }
@@ -125,7 +125,7 @@ class POOBkemonTest {
             Player human = new Player("Ash", team, testInventory, "red");
             Machine machine = new AttackingTrainer(testInventory);
             game.startOnePlayerBattle(human, machine);
-            Map<Pokemon, List<List<Action>>> actions = game.getAvailableActions(human);
+            Map<Pokemon, List<List<Action>>> actions = game.getAvailableActions(true);
             assertAll(
                 () -> assertNotNull(actions, "Acciones no deberían ser nulas"),
                 () -> assertFalse(actions.isEmpty(), "Debería haber acciones disponibles"),
@@ -349,13 +349,13 @@ public void testParalysisReducesSpeed() {
     @Test
 public void testStruggleMoveWhenPPExhausted() {
     try {
-        Move razorLeaf = POOBkemon.createMove("Razor Leaf");
+        Move razorLeaf = POOBkemon.createMove("Rain Dance");
         ArrayList<Move> moves = new ArrayList<>(List.of(razorLeaf));
         Pokemon sceptile = POOBkemon.createPokemon("Sceptile", moves);
         ArrayList<Pokemon> team1 = new ArrayList<>(List.of(sceptile));
         Player trainer1 = new Player("Ash", team1, testInventory, "red");
         ArrayList<Pokemon> team2 = new ArrayList<>();
-        team2.add(POOBkemon.createPokemon("Charizard", new ArrayList<>(List.of(POOBkemon.createMove("Rain Dance")))));
+        team2.add(POOBkemon.createPokemon("Charizard", new ArrayList<>(List.of(POOBkemon.createMove("Double Team")))));
         DefensiveTrainer trainer2 = new DefensiveTrainer(testInventory);
         BattleField field = new BattleField(trainer1, trainer2);
         while (razorLeaf.isAvailable()) {
