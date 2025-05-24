@@ -462,9 +462,8 @@ public class PokemonSelection extends JPanel {
         }
     }
 
-
     private void loadImages(int cellWidth, int cellHeight){
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 4; i++) { // cambiar 4 a algun otro numero mayor para cargar mas imagenes y poner las imagenes de los iconos en icons con su respectivo numero
             BufferedImage image = ImageLoader.loadImage("resources/Images/Icons/" + i + ".png", cellWidth, cellHeight);
             if (image != null) {
                 images.add(image);
